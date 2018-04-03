@@ -1,1 +1,4 @@
-package character;
+package main.java.character;
+
+public class Warrior {
+}
