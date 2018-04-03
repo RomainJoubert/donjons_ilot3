@@ -8,8 +8,8 @@ public class Weapon {
     private int niveau;
 
 
-    Arme(String armeName, int attaque) {
-        this.name = armeName;
+    Weapon(String weaponName, int attaque) {
+        this.name = weaponName;
         this.niveau = attaque;
 
     }
