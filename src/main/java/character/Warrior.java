@@ -2,7 +2,7 @@ package main.java.character;
 
 public class Warrior {
     private String weapon;
-    private String weaponLevel;
+    private int weaponLevel;
     private String shield;
     private int shieldLevel;
 
@@ -14,11 +14,11 @@ public class Warrior {
         this.weapon = weapon;
     }
 
-    public String getWeaponLevel() {
+    public int getWeaponLevel() {
         return weaponLevel;
     }
 
-    public void setWeaponLevel(String weaponLevel) {
+    public void setWeaponLevel(int weaponLevel) {
         this.weaponLevel = weaponLevel;
     }
 
