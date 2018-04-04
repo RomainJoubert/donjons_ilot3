@@ -1,14 +1,18 @@
 package equipment;
 
-public class Spell {
+import character.Magician;
+
+public class Spell extends Magician {
 
     private String name;
     private int level;
 
 
-    Spell(String spellName, int attaque) {
+    Spell(String spellName, int dragonAttack , int succubusAttack, int wizzardAttack) {
         this.name = spellName;
-        this.level = attaque;
+        this.levelDragons = dragonAttack;
+        this.levelSuccubus = succubusAttack;
+        this.levelWizzard = wizzardAttack;
 
     }
 

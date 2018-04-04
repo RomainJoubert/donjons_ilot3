@@ -2,6 +2,7 @@ package game;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
     private static Scanner sc = new Scanner(System.in);
@@ -10,6 +11,16 @@ public class Main {
         showMenu();
         createcharacter();
         nombreAleatoire();
+
+        ArrayList <Weapon> weaponList = new ArrayList<Weapon>();
+        weaponList.add(w1 = new Weapon("Arc", 50,25));
+        weaponList.add(w2 = new Weapon ("Massue", 30,30,30));
+        weaponList.add(w3 = new Weapon("Epée", 25,25,25));
+
+        ArrayList <Spell> spellList = new ArrayList<Spell>();
+        spellList.add(s1 = new Spell("Eclair", 25,0,50));
+        spellList.add(s2 = new Spell("Invisibilité", 30,30,30));
+        spellList.add(s3 = new Spell("Mur de feu", 25,25,25));
 
     }
 

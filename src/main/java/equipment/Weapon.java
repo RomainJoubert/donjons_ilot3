@@ -1,15 +1,18 @@
 package game;
 
 
+import character.Warrior;
 
-public class Weapon {
+public class Weapon extends Warrior{
 
     private String name;
     private int level;
 
-    Weapon(String weaponName, int attaque) {
-        this.name = weaponName;
-        this.level = attaque;
+    Weapon(String weaponName, int dragonAttack , int succubusAttack, int wizzardAttack) {
+        this.name = weaponName; // recupère la saisie utilisateur
+        this.levelDragons = dragonAttack;
+        this.levelSuccubus = succubusAttack;
+        this.levelWizzard = wizzardAttack;
 
     }
 
