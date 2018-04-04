@@ -1,6 +1,6 @@
-package main.java.game;
-import java.util.Random;
+package game;
 
 public class Board {
+
 
 }
