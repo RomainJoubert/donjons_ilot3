@@ -2,6 +2,7 @@ package character;
 
 public class Character {
     private String name;
+    private String chType;
     private String picture;
     private int life;
     private int attackLevel;
@@ -12,6 +13,14 @@ public class Character {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getChType() {
+        return chType;
+    }
+
+    public void setChType(String chType) {
+        this.chType = chType;
     }
 
     public String getPicture() {

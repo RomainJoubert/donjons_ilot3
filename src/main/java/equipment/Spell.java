@@ -5,7 +5,10 @@ import character.Magician;
 public class Spell extends Magician {
 
     private String name;
-    private int level;
+    private int levelDragons;
+    private int levelSuccubus;
+    private int levelWizzard;
+
 
 
     Spell(String spellName, int dragonAttack , int succubusAttack, int wizzardAttack) {
@@ -17,7 +20,7 @@ public class Spell extends Magician {
     }
 
     public String toString() {
-        return "\n son Sort: " + this.name + "\n niveau du Sort: " + this.level;
+        return "\n son Sort: " + this.name + "\n niveau du Sort: " + this.levelDragons +this.levelSuccubus +this.levelWizzard;
 
     }
 }
