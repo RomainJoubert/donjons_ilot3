@@ -1,4 +1,4 @@
-package main.java.character;
+package character;
 
 public class Warrior {
     private String weapon;

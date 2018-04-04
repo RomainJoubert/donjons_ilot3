@@ -1,13 +1,7 @@
-package main.java.game;
-import java.util.Random;
+package game;
+
 
 public class Board {
 
-    public static int nombreAleatoire(){
-            Random r = new Random();
-            int n = r.nextInt(6);
-            return n;
-
-    }
 
 }
