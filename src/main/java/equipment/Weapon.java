@@ -1,21 +1,23 @@
 package game;
 
 
+import character.Warrior;
 
-public class Weapon {
+public class Weapon extends Warrior{
 
     private String name;
-    private int niveau;
+    private int level;
 
+    Weapon(String weaponName, int dragonAttack , int succubusAttack, int wizzardAttack) {
+        this.name = weaponName; // recupère la saisie utilisateur
+        this.levelDragons = dragonAttack;
+        this.levelSuccubus = succubusAttack;
+        this.levelWizzard = wizzardAttack;
 
-    public String Arme(String armeName, int attaque) {
-        this.name = armeName;
-        this.niveau = attaque;
-return armeName;
     }
 
     public String toString() {
-        return "\n son Arme: " + this.name + "\n niveau de l'arme: " + this.niveau;
+        return "\n son Arme: " + this.name + "\n niveau de l'arme: " + this.level;
 
     }
 }
