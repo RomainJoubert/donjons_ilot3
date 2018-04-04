@@ -3,7 +3,10 @@ package equipment;
 
 import character.Warrior;
 
+import java.util.ArrayList;
+
 public class Weapon extends Warrior{
+
     private String name;
     private int levelDragons;
     private int levelSuccubus;
@@ -19,7 +22,8 @@ public class Weapon extends Warrior{
     }
 
     public String toString() {
-        return "\n son Arme: " + this.name + "\n niveau de l'arme: " ;
+
+        return "\n son Arme: " + this.name + "\n niveau de l'arme contre dragons/succubes/wizzard: " + this.levelDragons +this.levelSuccubus +this.levelWizzard;
 
     }
 }

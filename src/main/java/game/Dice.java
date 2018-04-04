@@ -4,7 +4,7 @@ import java.util.Random;
 
 
 public class Dice {
-    public int n;
+    private int n;
 
     public int getN() {
         return n;
