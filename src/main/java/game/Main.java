@@ -1,11 +1,11 @@
 package game;
 
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Main {
     private static Scanner sc = new Scanner(System.in);
-
 
     public static void main(String[] args) {
         showMenu();
@@ -13,14 +13,14 @@ public class Main {
         moveCase();
 
         ArrayList <Weapon> weaponList = new ArrayList<Weapon>();
-        weaponList.add(w1 = new Weapon("Arc", 50,25));
-        weaponList.add(w2 = new Weapon ("Massue", 30,30,30));
-        weaponList.add(w3 = new Weapon("Epée", 25,25,25));
+        weaponList.add(new Weapon("Arc", 50,25));
+        weaponList.add(new Weapon ("Massue", 30,30,30));
+        weaponList.add(new Weapon("Epée", 25,25,25));
 
         ArrayList <Spell> spellList = new ArrayList<Spell>();
-        spellList.add(s1 = new Spell("Eclair", 25,0,50));
-        spellList.add(s2 = new Spell("Invisibilité", 30,30,30));
-        spellList.add(s3 = new Spell("Mur de feu", 25,25,25));
+        spellList.add(new Spell("Eclair", 25,0,50));
+        spellList.add(new Spell("Invisibilité", 30,30,30));
+        spellList.add(new Spell("Mur de feu", 25,25,25));
 
     }
 
@@ -29,8 +29,6 @@ public class Main {
         sc.nextInt();
         sc.nextLine();
     }
-
-
 
 
     public static void createCharacter() {
@@ -52,7 +50,6 @@ public class Main {
             if (nb == 1) {
                 Dice dice1 = new Dice();
                 dice1.randomNumber();
-                dice1.getN();
                 System.out.println("vous avez fait : " + dice1.getN());
                 cases = cases + dice1.getN();
                 System.out.println("Vous êtes à la case : " + cases);
@@ -62,6 +59,7 @@ public class Main {
             }
 
         } while (cases < 64 && !exit);
+
 
     }
 }
