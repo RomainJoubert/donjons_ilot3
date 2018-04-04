@@ -3,14 +3,18 @@ package equipment;
 
 import character.Warrior;
 
+import java.util.ArrayList;
+
 public class Weapon extends Warrior{
 
-    private String name;
-    private int levelDragons;
-    private int levelSuccubus;
-    private int levelWizzard;
+    public String name;
+    public int levelDragons;
+    public int levelSuccubus;
+    public int levelWizzard;
 
-    Weapon(String weaponName, int dragonAttack , int succubusAttack, int wizzardAttack) {
+
+
+    public Weapon(String weaponName, int dragonAttack , int succubusAttack, int wizzardAttack) {
         this.name = weaponName; // recupère la saisie utilisateur
         this.levelDragons = dragonAttack;
         this.levelSuccubus = succubusAttack;

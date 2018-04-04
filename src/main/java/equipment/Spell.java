@@ -11,7 +11,7 @@ public class Spell extends Magician {
 
 
 
-    Spell(String spellName, int dragonAttack , int succubusAttack, int wizzardAttack) {
+    public Spell(String spellName, int dragonAttack , int succubusAttack, int wizzardAttack) {
         this.name = spellName;
         this.levelDragons = dragonAttack;
         this.levelSuccubus = succubusAttack;
