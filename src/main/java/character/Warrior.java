@@ -1,10 +1,17 @@
-package main.java.character;
+package character;
 
-public class Warrior {
+public class Warrior extends Character {
     private String weapon;
     private int weaponLevel;
     private String shield;
     private int shieldLevel;
+
+    public String toString() {
+        return "Arme : " + weapon +
+                "\n Puissance de l'arme : " +weaponLevel +
+                "\n Bouclier : " + shield +
+                "\n Puissance du bouclier : " + shieldLevel;
+    }
 
     public String getWeapon() {
         return weapon;

@@ -1,10 +1,17 @@
-package main.java.character;
+package character;
 
-public class Magician {
+public class Magician extends Character {
     private String spell;
     private int spellLevel;
     private String potion;
     private int potionLevel;
+
+    public String toString() {
+        return "Sort : " + spell +
+                "\nPuissance du sort : " + spellLevel +
+                "\nPhiltre : " + potion +
+                "\nPuissance du philtre : " + potionLevel;
+    }
 
     public String getSpell() {
         return spell;
