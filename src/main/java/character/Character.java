@@ -37,4 +37,7 @@ public class Character {
     public void setAttackLevel(int attackLevel) {
         this.attackLevel = attackLevel;
     }
+    public String toString() {
+        return "détails du personnage" + "\nnom : " + name + "\nimage : " + picture + "\nvie : " + life + "\nForce d'attaque : " + attackLevel;
+    }
 }
