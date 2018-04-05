@@ -6,13 +6,6 @@ public class Warrior extends Character {
     private String shield;
     private int shieldLevel;
 
-    public String toString() {
-        return "Arme : " + weapon +
-                "\n Puissance de l'arme : " +weaponLevel +
-                "\n Bouclier : " + shield +
-                "\n Puissance du bouclier : " + shieldLevel;
-    }
-
     public String getWeapon() {
         return weapon;
     }
@@ -43,5 +36,12 @@ public class Warrior extends Character {
 
     public void setShieldLevel(int shieldLevel) {
         this.shieldLevel = shieldLevel;
+    }
+
+    public String toString() {
+        return "Arme : " + weapon +
+                "\n Puissance de l'arme : " +weaponLevel +
+                "\n Bouclier : " + shield +
+                "\n Puissance du bouclier : " + shieldLevel;
     }
 }
