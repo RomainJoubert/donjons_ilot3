@@ -17,9 +17,6 @@ public class Main {
         showMenu();
         createCharacter();
 
-
-
-
         ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
         Weapon w1 = new Weapon("Arc", 50, 25, 0);
         weaponList.add(w1);
@@ -58,11 +55,6 @@ public class Main {
                 }
         }
    }
-
-
-
-
-
 
     public static void showMenu() {
 
