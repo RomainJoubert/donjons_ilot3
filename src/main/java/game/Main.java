@@ -17,9 +17,6 @@ public class Main {
         showMenu();
         createCharacter();
 
-
-
-
         ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
         Weapon w1 = new Weapon("Arc", 50, 25, 0);
         weaponList.add(w1);
@@ -40,9 +37,7 @@ public class Main {
         chooseEquipment(weaponList, spellList);
         moveCase();
         playAgain();
-
     }
-
 
    public static void chooseEquipment(ArrayList<Weapon> weaponList , ArrayList<Spell>spellList){
         String charaGetType = "Magicien"; //juste pour tester tant que les perso ne sont pas stockés, à enlever ensuite.
@@ -59,11 +54,6 @@ public class Main {
         }
    }
 
-
-
-
-
-
     public static void showMenu() {
 
         System.out.println("Choisis un personnage \n1-Guerrier \n2-Magicien");
@@ -79,7 +69,6 @@ public class Main {
             } */
 
     }
-
 
     public static void createCharacter() {
         System.out.println("Entre le nom de ton personnage");
