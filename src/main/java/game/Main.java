@@ -82,12 +82,8 @@ public class Main {
                 Dice dice1 = new Dice();
                 dice1.randomNumber();
                 System.out.println("Tu as fait : " + dice1.getN());
-                cases = cases + dice1.getN();
-<<<<<<< HEAD
-                System.out.println("Tu es à la case : " + cases);
-=======
                 System.out.println("Tu es à la case : " + cases + "/64");
->>>>>>> 1e771a87d464f4d1a87e00b5143d6c0e3a20edb7
+
             } else {
                 exit = true;
                 System.out.println("exit");
