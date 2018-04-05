@@ -84,12 +84,12 @@ public class Main {
                 dice1.randomNumber();
                 System.out.println("vous avez fait : " + dice1.getN());
                 cases = cases + dice1.getN();
-                System.out.println("Vous êtes à la case : " + cases);
+                System.out.println("Vous êtes à la case : " + cases + "/64");
             } else {
                 exit = true;
                 System.out.println("exit");
             }
-        } while (cases < 10 && !exit);
+        } while (cases < 64 && !exit);
     }
 
     //    méthode pour relancer une partie
