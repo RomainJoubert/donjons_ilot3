@@ -13,8 +13,7 @@ public class Weapon extends Warrior{
     public int levelWizzard;
 
 
-
-    public Weapon(String weaponName, int dragonAttack , int succubusAttack, int wizzardAttack) {
+   public Weapon(String weaponName, int dragonAttack , int succubusAttack, int wizzardAttack) {
         this.name = weaponName; // recupère la saisie utilisateur
         this.levelDragons = dragonAttack;
         this.levelSuccubus = succubusAttack;
@@ -23,6 +22,7 @@ public class Weapon extends Warrior{
     }
 
     public String toString() {
+
         return "\n son Arme: " + this.name + "\n niveau de l'arme contre dragons/succubes/wizzard: " + this.levelDragons +this.levelSuccubus +this.levelWizzard;
 
     }

@@ -9,8 +9,6 @@ public class Spell extends Magician {
     public int levelSuccubus;
     public int levelWizzard;
 
-
-
     public Spell(String spellName, int dragonAttack , int succubusAttack, int wizzardAttack) {
         this.name = spellName;
         this.levelDragons = dragonAttack;
@@ -20,7 +18,8 @@ public class Spell extends Magician {
     }
 
     public String toString() {
-        return "\n son Sort: " + this.name + "\n niveau du Sort: " + this.levelDragons +this.levelSuccubus +this.levelWizzard;
+           return "\n son Sort: " + this.name + "\n niveau du Sort: " + this.levelDragons +this.levelSuccubus +this.levelWizzard;
+
 
     }
 }
