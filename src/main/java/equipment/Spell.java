@@ -4,10 +4,10 @@ import character.Magician;
 
 public class Spell extends Magician {
 
-    private String name;
-    private int levelDragons;
-    private int levelSuccubus;
-    private int levelWizzard;
+    public String name;
+    public int levelDragons;
+    public int levelSuccubus;
+    public int levelWizzard;
 
 
 
