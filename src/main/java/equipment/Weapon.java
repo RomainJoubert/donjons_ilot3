@@ -7,10 +7,10 @@ import java.util.ArrayList;
 
 public class Weapon extends Warrior{
 
-    private String name;
-    private int levelDragons;
-    private int levelSuccubus;
-    private int levelWizzard;
+    public String name;
+    public int levelDragons;
+    public int levelSuccubus;
+    public int levelWizzard;
 
 
    public Weapon(String weaponName, int dragonAttack , int succubusAttack, int wizzardAttack) {

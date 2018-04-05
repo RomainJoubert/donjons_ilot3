@@ -9,15 +9,15 @@ import java.util.ArrayList;
 
 public class Main {
     private static Scanner sc = new Scanner(System.in);
-    Character chara;
-    String nameChoice;
+
+
 
     public static void main(String[] args) {
+
         showMenu();
-        //chooseEquipment();
         createCharacter();
-        moveCase();
-        playAgain();
+
+
 
 
         ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
@@ -37,27 +37,47 @@ public class Main {
         Spell s3 = new Spell("Mur de feu", 25, 25, 25);
         spellList.add(s3);
 
+        chooseEquipment(weaponList, spellList);
+        moveCase();
+        playAgain();
+
     }
 
 
-   /* public static void chooseEquipment(){
+   public static void chooseEquipment(ArrayList<Weapon> weaponList , ArrayList<Spell>spellList){
+        String charaGetType = "Magicien"; //juste pour tester tant que les perso ne sont pas stockés, à enlever ensuite.
 
-        if(chType.equals("Magicien")) {
-            chara.setChType("magician");
-        }else if(chType.equals("Guerrier")) {
-            chara.setChType("guerrier");
-        }else{
-            System.out.println("ERROR character type");
+        if(charaGetType.equals("Guerrier")){ //remplacer par chara.getType (chara sera un objet de type Characater et servira à récupérer un personnage crée)
+            for(int i = 0; i < weaponList.size(); i++) {
+                System.out.println(i + " - " + weaponList.get(i).name);
             }
 
-            System.out.println(chType);
-        }*/
+        }else if(charaGetType.equals("Magicien")){
+                for(int j = 0; j < spellList.size(); j++){
+                    System.out.println(j + " - " + spellList.get(j).name);
+                }
+        }
+   }
+
+
+
+
 
 
     public static void showMenu() {
+
         System.out.println("Choisis un personnage \n1-Guerrier \n2-Magicien");
+        String chType;
         sc.nextInt();
         sc.nextLine();
+       /* if(sc.nextInt() == 1) {
+            chType = "Guerrier";
+            chara.setChType(chType); // chara correspond au personnage crée
+        }else{
+            chType = "Magicien";
+            chara.setChType(chType); NE PAS SUPPRIMER - UTILE POUR LA SUITE - RECUPERE LE TYPE DU PERSO CREE
+            } */
+
     }
 
 

@@ -47,6 +47,6 @@ public class Character {
         this.attackLevel = attackLevel;
     }
     public String toString() {
-        return "détails du personnage" + "\nnom : " + name + "\nimage : " + picture + "\nvie : " + life + "\nForce d'attaque : " + attackLevel;
+        return "détails du personnage" + "\nType" +chType + "\nnom : " + name + "\nimage : " + picture + "\nvie : " + life + "\nForce d'attaque : " + attackLevel;
     }
 }
