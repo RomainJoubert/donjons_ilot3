@@ -4,6 +4,7 @@ import character.Character;
 import equipment.Weapon;
 import equipment.Spell;
 
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -22,7 +23,7 @@ public class Main {
         Weapon w3 = new Weapon("Epée", 25, 25, 25);
         weaponList.add(w3);
 
-    //------------------liste des sorts-----------------------------------
+        //------------------liste des sorts-----------------------------------
         ArrayList<Spell> spellList = new ArrayList<Spell>();
         Spell s1 = new Spell("Eclair", 25, 0, 50);
         spellList.add(s1);
@@ -31,7 +32,7 @@ public class Main {
         Spell s3 = new Spell("Mur de feu", 25, 25, 25);
         spellList.add(s3);
 
-    //-----------------jeu-----------------------------------------
+        //-----------------jeu-----------------------------------------
         showMenu();
         createCharacter();
         chooseEquipment(weaponList, spellList);
@@ -103,6 +104,7 @@ public class Main {
             }
         } while (cases < 10 && !exit);
     }
+
 
     //-----------------méthode pour relancer une partie--------------------
     public static void playAgain() {
