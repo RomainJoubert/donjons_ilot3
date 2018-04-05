@@ -6,13 +6,6 @@ public class Magician extends Character {
     private String potion;
     private int potionLevel;
 
-    public String toString() {
-        return "Sort : " + spell +
-                "\nPuissance du sort : " + spellLevel +
-                "\nPhiltre : " + potion +
-                "\nPuissance du philtre : " + potionLevel;
-    }
-
     public String getSpell() {
         return spell;
     }
@@ -43,5 +36,12 @@ public class Magician extends Character {
 
     public void setPotionLevel(int potionLevel) {
         this.potionLevel = potionLevel;
+    }
+
+    public String toString() {
+        return "Sort : " + spell +
+                "\nPuissance du sort : " + spellLevel +
+                "\nPhiltre : " + potion +
+                "\nPuissance du philtre : " + potionLevel;
     }
 }

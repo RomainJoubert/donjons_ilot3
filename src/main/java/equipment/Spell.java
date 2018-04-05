@@ -3,7 +3,6 @@ package equipment;
 import character.Magician;
 
 public class Spell extends Magician {
-
     public String name;
     public int levelDragons;
     public int levelSuccubus;

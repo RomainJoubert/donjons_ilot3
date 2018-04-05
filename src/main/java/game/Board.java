@@ -1,17 +1,17 @@
 package game;
+
 import java.util.Random;
 
 public class Board {
 
-private int ennemy;
-private int box;
-private int nb;
+    private int ennemy;
+    private int box;
+    private int nb;
 
-public void distribution() {
-    Random r = new Random(); //tirage aléatoire en utilisant la class Random
-    nb = r.nextInt() ;
-}
-
+    public void distribution() {
+        Random r = new Random(); //tirage aléatoire en utilisant la class Random
+        nb = r.nextInt();
+    }
 
     public int getEnnemy() {
         return ennemy;
