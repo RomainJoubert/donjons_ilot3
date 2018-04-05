@@ -76,15 +76,15 @@ public class Main {
         boolean exit = false;
         int nb;
         do {
-            System.out.println("lancer le dé ? \n1-oui \n2-non");
+            System.out.println("Lancer le dé ? \n1-oui \n2-non");
             nb = sc.nextInt();
             sc.nextLine();
             if (nb == 1) {
                 Dice dice1 = new Dice();
                 dice1.randomNumber();
-                System.out.println("vous avez fait : " + dice1.getN());
+                System.out.println("Tu as fait : " + dice1.getN());
                 cases = cases + dice1.getN();
-                System.out.println("Vous êtes à la case : " + cases + "/64");
+                System.out.println("Tu es à la case : " + cases + "/64");
             } else {
                 exit = true;
                 System.out.println("exit");
@@ -103,6 +103,7 @@ public class Main {
             test = sc.nextInt();
             sc.nextLine();
         }
+        System.out.println("A bientôt !");
     }
 }
 
