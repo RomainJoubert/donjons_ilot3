@@ -13,6 +13,7 @@ public class Main {
     public static void main(String[] args) {
 
         //---------------liste des armes--------------------------------------
+
         ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
         Weapon w1 = new Weapon("Arc", 50, 25, 0);
         weaponList.add(w1);
@@ -39,6 +40,7 @@ public class Main {
     }
 
     //--------------méthode qui affiche le menu-------------------
+
     public static void showMenu() {
         System.out.println("Choisis un personnage \n1-Guerrier \n2-Magicien");
         String chType;
@@ -53,7 +55,9 @@ public class Main {
             } */
     }
 
+
     //--------------méthode pour créer un personnage-------------------
+
     public static void createCharacter() {
         System.out.println("Entre le nom de ton personnage");
         String nameChoice = sc.nextLine();
