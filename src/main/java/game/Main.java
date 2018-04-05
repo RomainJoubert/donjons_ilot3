@@ -1,6 +1,5 @@
 package game;
 
-
 import character.Character;
 import equipment.Weapon;
 import equipment.Spell;
@@ -80,9 +79,9 @@ public class Main {
             if (nb == 1) {
                 Dice dice1 = new Dice();
                 dice1.randomNumber();
-                System.out.println("vous avez fait : " + dice1.getN());
+                System.out.println("Tu as fait : " + dice1.getN());
                 cases = cases + dice1.getN();
-                System.out.println("Vous êtes à la case : " + cases);
+                System.out.println("Tu es à la case : " + cases);
             } else {
                 exit = true;
                 System.out.println("exit");
