@@ -89,7 +89,7 @@ public class Main {
                 exit = true;
                 System.out.println("exit");
             }
-        } while (cases < 64 && !exit);
+        } while (cases < 10 && !exit);
     }
 
     //    méthode pour relancer une partie
@@ -100,7 +100,7 @@ public class Main {
         while (test == 1) {
             moveCase();
             System.out.println(" \nUne autre partie? \n 1 - Oui \n 2 - Non");
-            test = sc.nextInt();
+            test = sc.nextInt(); //code dupliqué sinon on ne sort pas du DO/While de la méthode moveCase
             sc.nextLine();
         }
         System.out.println("A bientôt !");
