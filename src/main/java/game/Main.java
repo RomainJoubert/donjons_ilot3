@@ -2,6 +2,7 @@ package game;
 
 import box.AddWeapon;
 import box.Bonus;
+import box.Shield;
 import box.SurpriseCase;
 import character.Character;
 import equipment.Weapon;
@@ -39,6 +40,7 @@ public class Main {
         createCharacter();
         chooseEquipment(weaponList, spellList);
         moveCase();
+        shieldSurprise();
     }
 
     //--------------méthode qui affiche le menu-------------------
@@ -149,19 +151,29 @@ public class Main {
 
     //-----------------caisse surprise arme----------------------
     public static void weaponSurprise() {
+        int i;
         ArrayList<SurpriseCase> addWeaponArrayList = new ArrayList<SurpriseCase>();
         SurpriseCase s4 = new SurpriseCase(new AddWeapon("bombe", 100));
         addWeaponArrayList.add(s4);
         SurpriseCase s5 = new SurpriseCase(new AddWeapon("hache", 25));
         addWeaponArrayList.add(s5);
-        int i;
         for (i = 0; i < addWeaponArrayList.size(); i++) {
             System.out.println(addWeaponArrayList.get(i));
         }
     }
 
-    //----------------ajout bouclier-----------------
+   //----------------caisse surprise bouclier---------------
+    public static void shieldSurprise(){
+        ArrayList<SurpriseCase> addShieldList = new ArrayList<SurpriseCase>();
+        SurpriseCase sh1 = new SurpriseCase(new Shield( 5));
+        addShieldList.add(sh1);
+        SurpriseCase sh2 = new SurpriseCase(new Shield(3));
+        addShieldList.add(sh2);
+        SurpriseCase sh3 = new SurpriseCase(new Shield( 2));
+        addShieldList.add(sh3);
+        System.out.println(sh1 +"\n" + sh2 +"\n" +sh3);
 
+    }
 
 }
 
