@@ -3,14 +3,16 @@ package game;
 import character.Character;
 import equipment.Weapon;
 import equipment.Spell;
-
+import opponent.Opponent;
+import opponent.Dragon;
+import opponent.Wizzard;
+import opponent.Succubi;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Main {
     private static Scanner sc = new Scanner(System.in);
-
-
 
     public static void main(String[] args) {
 
@@ -34,9 +36,62 @@ public class Main {
         Spell s3 = new Spell("Mur de feu", 25, 25, 25);
         spellList.add(s3);
 
+        ArrayList<Dragon> dragonList = new ArrayList<Dragon>();
+        Dragon d1 = new Dragon(80, 80);
+        dragonList.add(d1);
+        Dragon d2 = new Dragon(60,60);
+        dragonList.add(d2);
+        Dragon d3 = new Dragon(40,40);
+        dragonList.add(d3);
+        Dragon d4 = new Dragon(30,30);
+        dragonList.add(d4);
+        Dragon d5 = new Dragon(20,20);
+        dragonList.add(d5);
+        Dragon d6 = new Dragon(15,15);
+        dragonList.add(d6);
+
+        ArrayList<Wizzard> wizzardList = new ArrayList<Wizzard>();
+        Wizzard wz1 = new Wizzard(75);
+        wizzardList.add(wz1);
+        Wizzard wz2 = new Wizzard(50);
+        wizzardList.add(wz2);
+        Wizzard wz3 = new Wizzard(25);
+        wizzardList.add(wz3);
+        Wizzard wz4 = new Wizzard(15);
+        wizzardList.add(wz4);
+
+        ArrayList<Succubi> succubiList = new ArrayList<Succubi>();
+        Succubi suc1 = new Succubi(75);
+        succubiList.add(suc1);
+        Succubi suc2 = new Succubi(50);
+        succubiList.add(suc2);
+        Succubi suc3 = new Succubi(25);
+        succubiList.add(suc3);
+        Succubi suc4 = new Succubi(15);
+        succubiList.add(suc4);
+
+
+
+
         chooseEquipment(weaponList, spellList);
+        attributeNumberCaseToOpponent();
         moveCase();
         playAgain();
+
+    }
+
+    public static void attributeNumberCaseToOpponent(){
+        int cases[] = new int[65]; //tableau de cases, de 0 à 65.
+
+        for(int i = 1; i< cases.length ; i ++) {
+            Random rn = new Random(i);
+            int currentCase = rn.nextInt(i) + 1;
+
+        System.out.println(currentCase);
+
+        }
+
+
 
     }
 
