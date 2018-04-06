@@ -1,5 +1,8 @@
 package game;
 
+import java.util.*;
+import java.util.Map.Entry;
+
 import box.AddWeapon;
 import box.Bonus;
 import box.Shield;
@@ -11,9 +14,6 @@ import opponent.Opponent;
 import opponent.Dragon;
 import opponent.Wizzard;
 import opponent.Succubi;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.Random;
 
 public class Main {
     private static Scanner sc = new Scanner(System.in);
@@ -62,15 +62,7 @@ public class Main {
         Wizzard wz4 = new Wizzard(15);
         wizzardList.add(wz4);
 
-        ArrayList<Succubi> succubiList = new ArrayList<Succubi>();
-        Succubi suc1 = new Succubi(75);
-        succubiList.add(suc1);
-        Succubi suc2 = new Succubi(50);
-        succubiList.add(suc2);
-        Succubi suc3 = new Succubi(25);
-        succubiList.add(suc3);
-        Succubi suc4 = new Succubi(15);
-        succubiList.add(suc4);
+
 
 //-----------------jeu-----------------------------------------
         showMenu();
@@ -81,16 +73,48 @@ public class Main {
         shieldSurprise();
     }
 
-
+    //--------------méthode qui attribut une case à un ennemi-------------------
     public static void attributeNumberCaseToOpponent() {
         int cases[] = new int[65]; //tableau de cases, de 0 à 65.
+        int currentCase = 0;
+        Succubi opponentSelected = null;
+
+        ArrayList<Succubi> succubiList = new ArrayList<Succubi>();
+        Succubi suc1 = new Succubi("Succube", 75);
+        succubiList.add(suc1);
+        Succubi suc2 = new Succubi("Succube", 50);
+        succubiList.add(suc2);
+        Succubi suc3 = new Succubi("Succube", 25);
+        succubiList.add(suc3);
+        Succubi suc4 = new Succubi("Succube", 15);
+        succubiList.add(suc4);
 
         for (int i = 1; i < cases.length; i++) {
             Random rn = new Random(i);
-            int currentCase = rn.nextInt(i) + 1;
+            currentCase = rn.nextInt(i) + 1;
             System.out.println(currentCase);
+
+        }
+
+        for (int j = 1; j < succubiList.size() + 1; j++) {
+            Random rn = new Random(j);
+            int number = rn.nextInt(j) + 1;
+            System.out.println("Nombre tiré " + number);
+            opponentSelected = succubiList.get(number);
+            System.out.println(opponentSelected.name + "\nNiveau d'attack : " + opponentSelected.attackLevel);
+        }
+
+        HashMap board = new HashMap();
+        board.put(currentCase, opponentSelected.name);
+
+        Iterator<Entry <Integer,String >> itr = board.iterator();
+
+        while (itr.hasNext()) {
+            Object element = itr.next();
+            System.out.print(element.getKey() + element.getValue());
         }
     }
+
     //--------------méthode qui affiche le menu-------------------
     public static void showMenu() {
         // String chType;
