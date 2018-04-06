@@ -1,7 +1,7 @@
 package character;
 
 public class Magician extends Character {
-    private String spell;
+	private String spell;
     private int spellLevel;
     private String potion;
     private int potionLevel;
