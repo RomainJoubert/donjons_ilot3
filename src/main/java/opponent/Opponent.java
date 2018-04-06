@@ -3,6 +3,7 @@ package opponent;
 public class Opponent {
 
     public int attackLevel;
+    public String name;
 
 
     public int getAttackLevel() {

@@ -1,6 +1,13 @@
 package game;
 
 import box.*;
+import java.util.*;
+import java.util.Map.Entry;
+
+import box.AddWeapon;
+import box.Bonus;
+import box.addShield;
+import box.SurpriseCase;
 import character.Character;
 import character.Warrior;
 import character.Magician;
@@ -67,15 +74,7 @@ public class Main {
         Wizzard wz4 = new Wizzard(15);
         wizzardList.add(wz4);
 
-        ArrayList<Succubi> succubiList = new ArrayList<Succubi>();
-        Succubi suc1 = new Succubi(75);
-        succubiList.add(suc1);
-        Succubi suc2 = new Succubi(50);
-        succubiList.add(suc2);
-        Succubi suc3 = new Succubi(25);
-        succubiList.add(suc3);
-        Succubi suc4 = new Succubi(15);
-        succubiList.add(suc4);
+
 
 //-----------------jeu-----------------------------------------
         showMenu();
@@ -86,15 +85,46 @@ public class Main {
 
     }
 
-
+    //--------------méthode qui attribut une case à un ennemi-------------------
     public static void attributeNumberCaseToOpponent() {
         int cases[] = new int[65]; //tableau de cases, de 0 à 65.
+        int currentCase = 0;
+        Succubi opponentSelected = null;
+
+        ArrayList<Succubi> succubiList = new ArrayList<Succubi>();
+        Succubi suc1 = new Succubi("Succube", 75);
+        succubiList.add(suc1);
+        Succubi suc2 = new Succubi("Succube", 50);
+        succubiList.add(suc2);
+        Succubi suc3 = new Succubi("Succube", 25);
+        succubiList.add(suc3);
+        Succubi suc4 = new Succubi("Succube", 15);
+        succubiList.add(suc4);
 
         for (int i = 1; i < cases.length; i++) {
             Random rn = new Random(i);
-            int currentCase = rn.nextInt(i) + 1;
+            currentCase = rn.nextInt(i) + 1;
             System.out.println(currentCase);
+
         }
+
+        for (int j = 1; j < succubiList.size() + 1; j++) {
+            Random rn = new Random(j);
+            int number = rn.nextInt(j) + 1;
+            System.out.println("Nombre tiré " + number);
+            opponentSelected = succubiList.get(number);
+            System.out.println(opponentSelected.name + "\nNiveau d'attack : " + opponentSelected.attackLevel);
+        }
+
+        /*HashMap board = new HashMap();
+        board.put(currentCase, opponentSelected.name);
+
+        Iterator<Entry <Integer,String >> itr = board.iterator();
+
+        while (itr.hasNext()) {
+            Object element = itr.next();
+            System.out.print(element.getKey() + element.getValue());
+        }*/
     }
 
     //--------------méthode qui affiche le menu-------------------
@@ -103,29 +133,34 @@ public class Main {
         int test;
         String input;
 
-        do {
-            System.out.println("Choisis un personnage \n1-Guerrier \n2-Magicien");
-            input = sc.nextLine();
-            try {
-                test = Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                System.out.printf("\"%s\" n'est pas valide.\n", input);
+
+		do {
+			System.out.println("Choisis un personnage \n1-Guerrier \n2-Magicien");
+			input = sc.nextLine();
+			try {
+				test = Integer.parseInt(input);
+			}
+			catch(NumberFormatException e)
+			{
+				System.out.printf("\"%s\" n'est pas valide.\n", input);
+			}
+         } while (!(input.equals("1") || input.equals("2")));
+       if(input.equals("1")) {
+    	   classe = "1";
+        }else if (input.equals("2")){
+        	classe = "2";
             }
-        } while (!(input.equals("1") || input.equals("2")));
-        if (input.equals("1")) {
-            classe = "1";
-        } else if (input.equals("2")) {
-            classe = "2";
-        }
     }
 
     //--------------méthode pour créer un personnage-------------------
     public static void createCharacter() {
-        if (classe.equals("1")) {
-            createWarrior();
-        } else {
-            createMagician();
-        }
+
+
+    	if (classe.equals("1")) {
+    		createWarrior();
+    	} else {
+    		createMagician();
+    	}
     }
 
     public static void createWarrior() {
@@ -147,11 +182,12 @@ public class Main {
     }
 
     //--------------méthode pour choisir armes ou sorts---------------------
-    public static void chooseEquipment(ArrayList<Weapon> weaponList, ArrayList<Spell> spellList) {
-        String test;
+    public static void chooseEquipment(ArrayList<Weapon> weaponList, ArrayList<Spell> spellList)
+    {
+    	String test;
         if (classe.equals("1")) {
             for (int i = 0; i < weaponList.size(); i++) {
-                System.out.println(+i + " - " + weaponList.get(i).name);
+                System.out.println(+ i + " - " + weaponList.get(i).name);
             }
             do {
                 System.out.println("Choisis une arme");
@@ -166,7 +202,6 @@ public class Main {
 
             } while (!(test.equals("0") || test.equals("1") || test.equals("2")));
 
-        } else if (classe.equals("2")) {
             for (int j = 0; j < spellList.size(); j++) {
                 System.out.println(j + " - " + spellList.get(j).name);
             }
@@ -242,9 +277,11 @@ public class Main {
     public static void weaponSurprise() {
         int i;
         ArrayList<SurpriseCase> addWeaponArrayList = new ArrayList<SurpriseCase>();
-        SurpriseCase s4 = new SurpriseCase(new AddWeapon("bombe", 100, 20, 30, 40));
+
+        SurpriseCase s4 = new SurpriseCase(new AddWeapon("bombe", 100,20,20,20));
         addWeaponArrayList.add(s4);
-        SurpriseCase s5 = new SurpriseCase(new AddWeapon("hache", 25, 20, 30, 2));
+        SurpriseCase s5 = new SurpriseCase(new AddWeapon("hache", 25,10,10,10));
+
         addWeaponArrayList.add(s5);
 
         for (i = 0; i < addWeaponArrayList.size(); i++) {
