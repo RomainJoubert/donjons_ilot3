@@ -1,6 +1,6 @@
 package box;
 
-public class Joker extends SurpriseCase{
+public class Joker extends Surprise{
     private int life;
 
     public Joker(int life) {
