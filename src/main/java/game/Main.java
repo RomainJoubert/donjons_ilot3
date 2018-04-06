@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class Main {
     private static Scanner sc = new Scanner(System.in);
+    static String charaGetType;
 
     public static void main(String[] args) {
 
@@ -36,23 +37,30 @@ public class Main {
         createCharacter();
         chooseEquipment(weaponList, spellList);
         moveCase();
-        playAgain();
     }
 
     //--------------méthode qui affiche le menu-------------------
 
     public static void showMenu() {
-        System.out.println("Choisis un personnage \n1-Guerrier \n2-Magicien");
-        String chType;
-        sc.nextInt();
-        sc.nextLine();
-       /* if(sc.nextInt() == 1) {
-            chType = "Guerrier";
-            chara.setChType(chType); // chara correspond au personnage crée
-        }else{
-            chType = "Magicien";
-            chara.setChType(chType); NE PAS SUPPRIMER - UTILE POUR LA SUITE - RECUPERE LE TYPE DU PERSO CREE
-            } */
+        // String chType; 
+        int test;
+        String input;
+		do {
+			System.out.println("Choisis un personnage \n1-Guerrier \n2-Magicien");
+			input = sc.nextLine();
+			try {	
+				test = Integer.parseInt(input);
+			}
+			catch(NumberFormatException e)
+			{
+				System.out.printf("\"%s\" n'est pas valide.\n", input);
+			}	           
+         } while (!(input.equals("1") || input.equals("2")));
+       if(input.equals("1")) {
+    	   charaGetType = "Guerrier";
+        }else if (input.equals("2")){
+        	charaGetType = "Magicien";
+            } 
     }
 
 
@@ -66,14 +74,15 @@ public class Main {
         System.out.println("Ton personnage porte le nom de " + nameChoice + " et a l'image : " + pictureChoice);
     }
 
-    //--------------méthode pour choisir armes ous sorts---------------------
+    //--------------méthode pour choisir armes ou sorts---------------------
     public static void chooseEquipment(ArrayList<Weapon> weaponList, ArrayList<Spell> spellList) {
-        String charaGetType = "Magicien"; //juste pour tester tant que les perso ne sont pas stockés, à enlever ensuite.
+        //String charaGetType = "Magicien"; juste pour tester tant que les perso ne sont pas stockés, à enlever ensuite.
 
         if (charaGetType.equals("Guerrier")) { //remplacer par chara.getType (chara sera un objet de type Characater et servira à récupérer un personnage crée)
             for (int i = 0; i < weaponList.size(); i++) {
                 System.out.println(i + " - " + weaponList.get(i).name);
             }
+            
         } else if (charaGetType.equals("Magicien")) {
             for (int j = 0; j < spellList.size(); j++) {
                 System.out.println(j + " - " + spellList.get(j).name);
@@ -86,36 +95,55 @@ public class Main {
         int cases = 0;
         boolean exit = false;
         int nb;
+        String input2;
+       
         do {
-            System.out.println("Lancer le dé ? \n1-oui \n2-non");
-            nb = sc.nextInt();
-            sc.nextLine();
-            if (nb == 1) {
+        	do {
+        		 System.out.println("Lancer le dé ? \n1-oui \n2-non");
+        		 input2 = sc.nextLine();
+        		 try {	
+     				nb = Integer.parseInt(input2);
+     			}
+     			catch(NumberFormatException e)
+     			{
+     				System.out.printf("\"%s\" n'est pas valide.\n", input2);
+     			}	           
+              } while (!(input2.equals("1") || input2.equals("2")));
+            if (input2.equals("1")) {
                 Dice dice1 = new Dice();
                 dice1.randomNumber();
                 System.out.println("Tu as fait : " + dice1.getN());
                 cases = cases + dice1.getN();
                 System.out.println("Tu es à la case : " + cases + "/64");
 
-            } else {
+            } else if (input2.equals("2")) {
                 exit = true;
                 System.out.println("exit");
             }
         } while (cases < 10 && !exit);
+        playAgain();
     }
 
     //-----------------méthode pour relancer une partie--------------------
     public static void playAgain() {
         int test;
-        System.out.println(" \nUne autre partie? \n 1 - Oui \n 2 - Non");
-        test = sc.nextInt();
-        while (test == 1) {
-            moveCase();
-            System.out.println(" \nUne autre partie? \n 1 - Oui \n 2 - Non");
-            test = sc.nextInt(); //code dupliqué sinon on ne sort pas du DO/While de la méthode moveCase
-            sc.nextLine();
+        String choix;
+    	do {
+    		 System.out.println(" \nUne autre partie? \n 1 - Oui \n 2 - Non");
+			 choix = sc.nextLine();
+			try {	
+				test = Integer.parseInt(choix);
+			}
+			catch(NumberFormatException e)
+			{
+				System.out.printf("\"%s\" n'est pas valide.\n", choix);
+			}	           
+         } while (!(choix.equals("1") || choix.equals("2")));
+        if (choix.equals("1")) {
+        	moveCase();
+        } else if (choix.equals("2")) {
+        	System.out.println("A bientôt !");
         }
-        System.out.println("A bientôt !");
     }
 }
 
