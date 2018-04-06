@@ -1,5 +1,8 @@
 package game;
 
+import box.AddWeapon;
+import box.Bonus;
+import box.SurpriseCase;
 import character.Character;
 import equipment.Weapon;
 import equipment.Spell;
@@ -14,7 +17,6 @@ public class Main {
     public static void main(String[] args) {
 
         //---------------liste des armes--------------------------------------
-
         ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
         Weapon w1 = new Weapon("Arc", 50, 25, 0);
         weaponList.add(w1);
@@ -23,7 +25,7 @@ public class Main {
         Weapon w3 = new Weapon("Epée", 25, 25, 25);
         weaponList.add(w3);
 
-    //------------------liste des sorts-----------------------------------
+        //------------------liste des sorts-----------------------------------
         ArrayList<Spell> spellList = new ArrayList<Spell>();
         Spell s1 = new Spell("Eclair", 25, 0, 50);
         spellList.add(s1);
@@ -32,7 +34,7 @@ public class Main {
         Spell s3 = new Spell("Mur de feu", 25, 25, 25);
         spellList.add(s3);
 
-    //-----------------jeu-----------------------------------------
+        //-----------------jeu-----------------------------------------
         showMenu();
         createCharacter();
         chooseEquipment(weaponList, spellList);
@@ -40,7 +42,6 @@ public class Main {
     }
 
     //--------------méthode qui affiche le menu-------------------
-
     public static void showMenu() {
         // String chType; 
         int test;
@@ -63,9 +64,7 @@ public class Main {
             } 
     }
 
-
     //--------------méthode pour créer un personnage-------------------
-
     public static void createCharacter() {
         System.out.println("Entre le nom de ton personnage");
         String nameChoice = sc.nextLine();
@@ -91,7 +90,7 @@ public class Main {
     }
 
     //-------------------méthode pour se déplacer sur le plateau-----------------------
-    public static void moveCase() {
+    public static int moveCase() {
         int cases = 0;
         boolean exit = false;
         int nb;
@@ -118,11 +117,13 @@ public class Main {
 
             } else if (input2.equals("2")) {
                 exit = true;
-                System.out.println("exit");
+                System.out.println("Tu es sorti(e) du game !");
             }
         } while (cases < 10 && !exit);
         playAgain();
+        return cases;
     }
+
 
     //-----------------méthode pour relancer une partie--------------------
     public static void playAgain() {
@@ -145,6 +146,23 @@ public class Main {
         	System.out.println("A bientôt !");
         }
     }
+
+    //-----------------caisse surprise arme----------------------
+    public static void weaponSurprise() {
+        ArrayList<SurpriseCase> addWeaponArrayList = new ArrayList<SurpriseCase>();
+        SurpriseCase s4 = new SurpriseCase(new AddWeapon("bombe", 100));
+        addWeaponArrayList.add(s4);
+        SurpriseCase s5 = new SurpriseCase(new AddWeapon("hache", 25));
+        addWeaponArrayList.add(s5);
+        int i;
+        for (i = 0; i < addWeaponArrayList.size(); i++) {
+            System.out.println(addWeaponArrayList.get(i));
+        }
+    }
+
+    //----------------ajout bouclier-----------------
+
+
 }
 
 
