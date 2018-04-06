@@ -5,6 +5,8 @@ import box.Bonus;
 import box.Shield;
 import box.SurpriseCase;
 import character.Character;
+import character.Warrior;
+import character.Magician;
 import equipment.Weapon;
 import equipment.Spell;
 
@@ -14,25 +16,27 @@ import java.util.ArrayList;
 public class Main {
     private static Scanner sc = new Scanner(System.in);
     static String charaGetType;
-
+    static String classe;
+    static Warrior X;
+    static Magician Y;
+    static Weapon w1 = new Weapon("Arc", 50, 25, 0);
+    static Weapon w2 = new Weapon("Massue", 30, 30, 30);
+    static Weapon w3 = new Weapon("Epée", 25, 25, 25);
+    static Spell s1 = new Spell("Eclair", 25, 0, 50);
+    static Spell s2 = new Spell("Invisibilité", 30, 30, 30);
+    static Spell s3 = new Spell("Mur de feu", 25, 25, 25);
     public static void main(String[] args) {
 
         //---------------liste des armes--------------------------------------
         ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
-        Weapon w1 = new Weapon("Arc", 50, 25, 0);
         weaponList.add(w1);
-        Weapon w2 = new Weapon("Massue", 30, 30, 30);
         weaponList.add(w2);
-        Weapon w3 = new Weapon("Epée", 25, 25, 25);
         weaponList.add(w3);
 
         //------------------liste des sorts-----------------------------------
         ArrayList<Spell> spellList = new ArrayList<Spell>();
-        Spell s1 = new Spell("Eclair", 25, 0, 50);
         spellList.add(s1);
-        Spell s2 = new Spell("Invisibilité", 30, 30, 30);
         spellList.add(s2);
-        Spell s3 = new Spell("Mur de feu", 25, 25, 25);
         spellList.add(s3);
 
         //-----------------jeu-----------------------------------------
@@ -60,35 +64,74 @@ public class Main {
 			}	           
          } while (!(input.equals("1") || input.equals("2")));
        if(input.equals("1")) {
-    	   charaGetType = "Guerrier";
+    	   classe = "1";
         }else if (input.equals("2")){
-        	charaGetType = "Magicien";
+        	classe = "2";
             } 
     }
 
     //--------------méthode pour créer un personnage-------------------
     public static void createCharacter() {
-        System.out.println("Entre le nom de ton personnage");
-        String nameChoice = sc.nextLine();
-        System.out.println("Ajoute une image");
-        String pictureChoice = sc.nextLine();
-        System.out.println("Ton personnage porte le nom de " + nameChoice + " et a l'image : " + pictureChoice);
+    	
+    	if (classe.equals("1")) {
+    		createWarrior();
+    	} else {
+    		createMagician();
+    	}
+    }
+    public static void createWarrior() {
+    	X = new Warrior();
+    	System.out.println("Entre le nom de ton guerrier");
+    	X.setName(sc.nextLine());
+    	System.out.println("Ajoute une image");
+    	X.setPicture(sc.nextLine());
+    	System.out.println("Ton Guerrier porte le nom de " + X.getName() + " et a l'image : " + X.getPicture());
+    }
+    public static void createMagician() {
+    	Y = new Magician();
+    	System.out.println("Entre le nom de ton magicien");
+    	Y.setName(sc.nextLine());
+    	System.out.println("Ajoute une image");
+    	Y.setPicture(sc.nextLine());
+    	System.out.println("Ton Magicien porte le nom de " + Y.getName() + " et a l'image : " + Y.getPicture());
     }
 
     //--------------méthode pour choisir armes ou sorts---------------------
     public static void chooseEquipment(ArrayList<Weapon> weaponList, ArrayList<Spell> spellList) {
-        //String charaGetType = "Magicien"; juste pour tester tant que les perso ne sont pas stockés, à enlever ensuite.
-
-        if (charaGetType.equals("Guerrier")) { //remplacer par chara.getType (chara sera un objet de type Characater et servira à récupérer un personnage crée)
+    	String test;
+        if (classe.equals("1")) { 
             for (int i = 0; i < weaponList.size(); i++) {
-                System.out.println(i + " - " + weaponList.get(i).name);
+                System.out.println(+ i + " - " + weaponList.get(i).name);              
             }
-            
-        } else if (charaGetType.equals("Magicien")) {
+            do {
+            	System.out.println("Choisissez votre arme");
+            	test = sc.nextLine();
+            if (test.equals("0")) {
+            	X.setWeapon(w1);
+            } else if (test.equals("1")) {
+            	X.setWeapon(w2);
+            } else if (test.equals("2")) {
+            	X.setWeapon(w3);
+            }
+            }while(!(test.equals("0") || test.equals("1") || test.equals("2")));
+           
+        } else if (classe.equals("2")) {
             for (int j = 0; j < spellList.size(); j++) {
                 System.out.println(j + " - " + spellList.get(j).name);
             }
+            do {
+            	System.out.println("Choisissez votre sort");
+            	test = sc.nextLine();
+            if (test.equals("0")) {
+            	Y.setSpell(s1);
+            } else if (test.equals("1")) {
+            	Y.setSpell(s2);
+            } else if (test.equals("2")) {
+            	Y.setSpell(s3);
+            }
+            }while(!(test.equals("0") || test.equals("1") || test.equals("2")));
         }
+        
     }
 
     //-------------------méthode pour se déplacer sur le plateau-----------------------
