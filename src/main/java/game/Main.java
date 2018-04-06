@@ -78,9 +78,6 @@ public class Main {
         chooseEquipment(weaponList, spellList);
         attributeNumberCaseToOpponent();
         moveCase();
-        playAgain();
-
-
     }
 
 
