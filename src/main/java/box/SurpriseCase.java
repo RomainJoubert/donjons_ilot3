@@ -1,4 +1,5 @@
 package box;
+import equipment.Weapon;
 
 
 public class SurpriseCase {

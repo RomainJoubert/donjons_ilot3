@@ -1,16 +1,18 @@
 package character;
 
+import equipment.Weapon;
+
 public class Warrior extends Character {
-    private String weapon;
+    private Weapon weapon;
     private int weaponLevel;
     private String shield;
     private int shieldLevel;
 
-    public String getWeapon() {
+    public Weapon getWeapon() {
         return weapon;
     }
 
-    public void setWeapon(String weapon) {
+    public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
     }
 

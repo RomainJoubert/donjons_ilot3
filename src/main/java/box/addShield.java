@@ -1,10 +1,10 @@
 package box;
 
-public class Shield extends Surprise {
+public class addShield extends Surprise {
     private int shieldLevel;
 
 
-    public Shield(int shieldLevel) {
+    public addShield(int shieldLevel) {
 
         this.shieldLevel = shieldLevel;
     }
