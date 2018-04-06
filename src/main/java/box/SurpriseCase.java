@@ -1,9 +1,29 @@
 package box;
 
+
 import java.util.ArrayList;
-//import box.Shield;
+
+
 
 public class SurpriseCase {
+    private Surprise surprise;
+
+    public SurpriseCase(Surprise surprise) {
+        this.surprise = surprise;
+    }
+
+    public Surprise getSurprise() {
+        return surprise;
+    }
+
+    public void setSurprise(Surprise surprise) {
+        this.surprise = surprise;
+    }
+
+    public String toString() {
+        return "création caisse : \n" + this.surprise;
+
+    }
 
 
     //----------------méthode pour ajouter un bouclier avec une caisse surprise-----------

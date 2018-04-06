@@ -1,11 +1,8 @@
 package box;
 
-public class Malus extends SurpriseCase{
+public class Malus extends Surprise{
     private int cases;
 
-    public Malus(int cases) {
-        this.cases = cases;
-    }
 
     public int getCases() {
         return cases;

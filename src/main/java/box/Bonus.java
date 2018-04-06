@@ -1,6 +1,6 @@
 package box;
 
-public class Bonus extends SurpriseCase{
+public class Bonus extends Surprise{
     private int cases;
 
     public Bonus(int cases) {
