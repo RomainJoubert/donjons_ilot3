@@ -7,12 +7,12 @@ public class Character {
     private int life;
     private int attackLevel;
 
-    public Character(String name, String picture,int life, int attackLevel) {
-        this.name = name;
-        this.picture = picture;
-        this.life = life;
-        this.attackLevel = attackLevel;
-    }
+//    public Character(String name, String picture,int life, int attackLevel) {
+//        this.name = name;
+//        this.picture = picture;
+//        this.life = life;
+//        this.attackLevel = attackLevel;
+//    }
 
     public String getName() {
         return name;
