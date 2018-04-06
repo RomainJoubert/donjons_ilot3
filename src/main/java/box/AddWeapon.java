@@ -33,7 +33,7 @@ public class AddWeapon extends Surprise{
     }
 
     public String toString() {
-        return "nouvelle arme: " + this.weaponName + "\nniveau de l'arme : " + this.weaponAttackLevel;
+        return "" +this.weaponName + " de niveau d'attaque " + this.weaponAttackLevel;
 
     }
 

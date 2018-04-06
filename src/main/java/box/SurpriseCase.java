@@ -18,7 +18,7 @@ public class SurpriseCase {
     }
 
     public String toString() {
-        return "création caisse : \n" + this.surprise;
+        return "" + this.surprise;
 
     }
 

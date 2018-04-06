@@ -29,6 +29,7 @@ public class Main {
     static Spell s1 = new Spell("Eclair", 25, 0, 50);
     static Spell s2 = new Spell("Invisibilité", 30, 30, 30);
     static Spell s3 = new Spell("Mur de feu", 25, 25, 25);
+
     public static void main(String[] args) {
 
         ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
@@ -80,8 +81,9 @@ public class Main {
         showMenu();
         createCharacter();
         chooseEquipment(weaponList, spellList);
-        attributeNumberCaseToOpponent();
+//        attributeNumberCaseToOpponent();
         moveCase();
+
     }
 
 
@@ -101,87 +103,86 @@ public class Main {
         int test;
         String input;
 
-		do {
-			System.out.println("Choisis un personnage \n1-Guerrier \n2-Magicien");
-			input = sc.nextLine();
-			try {	
-				test = Integer.parseInt(input);
-			}
-			catch(NumberFormatException e)
-			{
-				System.out.printf("\"%s\" n'est pas valide.\n", input);
-			}	           
-         } while (!(input.equals("1") || input.equals("2")));
-       if(input.equals("1")) {
-    	   classe = "1";
-        }else if (input.equals("2")){
-        	classe = "2";
-            } 
+        do {
+            System.out.println("Choisis un personnage \n1-Guerrier \n2-Magicien");
+            input = sc.nextLine();
+            try {
+                test = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.printf("\"%s\" n'est pas valide.\n", input);
+            }
+        } while (!(input.equals("1") || input.equals("2")));
+        if (input.equals("1")) {
+            classe = "1";
+        } else if (input.equals("2")) {
+            classe = "2";
+        }
     }
 
     //--------------méthode pour créer un personnage-------------------
     public static void createCharacter() {
-    	
-    	if (classe.equals("1")) {
-    		createWarrior();
-    	} else {
-    		createMagician();
-    	}
+        if (classe.equals("1")) {
+            createWarrior();
+        } else {
+            createMagician();
+        }
     }
+
     public static void createWarrior() {
-    	X = new Warrior();
-    	System.out.println("Entre le nom de ton guerrier");
-    	X.setName(sc.nextLine());
-    	System.out.println("Ajoute une image");
-    	X.setPicture(sc.nextLine());
-    	System.out.println("Ton Guerrier porte le nom de " + X.getName() + " et a l'image : " + X.getPicture());
+        X = new Warrior();
+        System.out.println("Entre le nom de ton guerrier");
+        X.setName(sc.nextLine());
+        System.out.println("Ajoute une image");
+        X.setPicture(sc.nextLine());
+        System.out.println("Ton Guerrier porte le nom de " + X.getName() + " et a l'image : " + X.getPicture());
     }
+
     public static void createMagician() {
-    	Y = new Magician();
-    	System.out.println("Entre le nom de ton magicien");
-    	Y.setName(sc.nextLine());
-    	System.out.println("Ajoute une image");
-    	Y.setPicture(sc.nextLine());
-    	System.out.println("Ton Magicien porte le nom de " + Y.getName() + " et a l'image : " + Y.getPicture());
+        Y = new Magician();
+        System.out.println("Entre le nom de ton magicien");
+        Y.setName(sc.nextLine());
+        System.out.println("Ajoute une image");
+        Y.setPicture(sc.nextLine());
+        System.out.println("Ton Magicien porte le nom de " + Y.getName() + " et a l'image : " + Y.getPicture());
     }
 
     //--------------méthode pour choisir armes ou sorts---------------------
     public static void chooseEquipment(ArrayList<Weapon> weaponList, ArrayList<Spell> spellList) {
-    	String test;
-        if (classe.equals("1")) { 
+        String test;
+        if (classe.equals("1")) {
             for (int i = 0; i < weaponList.size(); i++) {
-                System.out.println(+ i + " - " + weaponList.get(i).name);              
+                System.out.println(+i + " - " + weaponList.get(i).name);
             }
             do {
-            	System.out.println("Choisissez votre arme");
-            	test = sc.nextLine();
-            if (test.equals("0")) {
-            	X.setWeapon(w1);
-            } else if (test.equals("1")) {
-            	X.setWeapon(w2);
-            } else if (test.equals("2")) {
-            	X.setWeapon(w3);
-            }
+                System.out.println("Choisis une arme");
+                test = sc.nextLine();
+                if (test.equals("0")) {
+                    X.setWeapon(w1);
+                } else if (test.equals("1")) {
+                    X.setWeapon(w2);
+                } else if (test.equals("2")) {
+                    X.setWeapon(w3);
+                }
 
-            }while(!(test.equals("0") || test.equals("1") || test.equals("2")));
-           
-        }  else if (classe.equals("2")) {
+            } while (!(test.equals("0") || test.equals("1") || test.equals("2")));
+
+        } else if (classe.equals("2")) {
             for (int j = 0; j < spellList.size(); j++) {
                 System.out.println(j + " - " + spellList.get(j).name);
             }
             do {
-            	System.out.println("Choisissez votre sort");
-            	test = sc.nextLine();
-            if (test.equals("0")) {
-            	Y.setSpell(s1);
-            } else if (test.equals("1")) {
-            	Y.setSpell(s2);
-            } else if (test.equals("2")) {
-            	Y.setSpell(s3);
-            }
-            }while(!(test.equals("0") || test.equals("1") || test.equals("2")));
+                System.out.println("Choisis un sort");
+                test = sc.nextLine();
+                if (test.equals("0")) {
+                    Y.setSpell(s1);
+                } else if (test.equals("1")) {
+                    Y.setSpell(s2);
+                } else if (test.equals("2")) {
+                    Y.setSpell(s3);
+                }
+            } while (!(test.equals("0") || test.equals("1") || test.equals("2")));
         }
-        
+
     }
 
     //-------------------méthode pour se déplacer sur le plateau-----------------------
@@ -241,32 +242,28 @@ public class Main {
     public static void weaponSurprise() {
         int i;
         ArrayList<SurpriseCase> addWeaponArrayList = new ArrayList<SurpriseCase>();
-        SurpriseCase s4 = new SurpriseCase(new AddWeapon("bombe", 100));
+        SurpriseCase s4 = new SurpriseCase(new AddWeapon("bombe", 100, 20, 30, 40));
         addWeaponArrayList.add(s4);
-        SurpriseCase s5 = new SurpriseCase(new AddWeapon("hache", 25));
+        SurpriseCase s5 = new SurpriseCase(new AddWeapon("hache", 25, 20, 30, 2));
         addWeaponArrayList.add(s5);
+
         for (i = 0; i < addWeaponArrayList.size(); i++) {
-            System.out.println(addWeaponArrayList.get(i));
+            addWeaponArrayList.get(i);
+            System.out.println("Tu es tombé sur la case surprise 'arme', tu récupères une " + addWeaponArrayList.get(i));
         }
     }
 
     //----------------caisse surprise bouclier---------------
     public static void shieldSurprise() {
         ArrayList<SurpriseCase> addShieldList = new ArrayList<SurpriseCase>();
-
         SurpriseCase sh1 = new SurpriseCase(new addShield(5));
-
         addShieldList.add(sh1);
         SurpriseCase sh2 = new SurpriseCase(new addShield(3));
         addShieldList.add(sh2);
-
         SurpriseCase sh3 = new SurpriseCase(new addShield(2));
-
         addShieldList.add(sh3);
         System.out.println(sh1 + "\n" + sh2 + "\n" + sh3);
-
     }
-
 
     //-------------------caisse surprise philtre------------------
     public static void philterSurprise() {
@@ -289,6 +286,43 @@ public class Main {
         addSpellList.add(sp2);
         System.out.println(sp1 + "\n" + sp2);
     }
+
+    //---------------caisse bonus----------------------------
+    public static int bonusSurprise(int currentCase) {
+        System.out.println("Tu es tombé sur la case surprise 'bonus', tu avances de 5 cases");
+        Bonus bonus = new Bonus(5);
+        currentCase = currentCase + bonus.getCases();
+        System.out.println("Tu es à la case : " + currentCase + "/64");
+        return currentCase;
+    }
+
+    //--------------caisse malus-------------------
+    public static int malusSurprise(int currentCase) {
+        System.out.println("Tu es tombé sur la case surprise 'malus', tu recules de 5 cases");
+        Malus malus = new Malus(5);
+        currentCase = currentCase - malus.getCases();
+        System.out.println("Tu es à la case : " + currentCase + "/64");
+        return currentCase;
+    }
+
+    //-----------------2 caisses joker--------------
+    public int jokerSurprise25(int levelLifeCharacter) {
+        System.out.println("Tu es tombé sur la case joker \nTu gagnes 25 points de vie");
+        Joker joker1 = new Joker(25);
+        levelLifeCharacter = levelLifeCharacter + joker1.getLife();
+        System.out.println("Ton niveau de vie est de : " + levelLifeCharacter);
+        return levelLifeCharacter;
+    }
+
+    public int jokerSurprise50(int levelLifeCharacter) {
+        System.out.println("Tu es tombé sur la case joker \nTu gagnes 50 points de vie");
+        Joker joker2 = new Joker(50);
+        levelLifeCharacter = levelLifeCharacter + joker2.getLife();
+        System.out.println("Ton niveau de vie est de : " + levelLifeCharacter);
+        return levelLifeCharacter;
+    }
+
+
 }
 
 
