@@ -73,14 +73,17 @@ public class Main {
         String charaGetType = "Magicien"; //juste pour tester tant que les perso ne sont pas stockés, à enlever ensuite.
 
         if (charaGetType.equals("Guerrier")) { //remplacer par chara.getType (chara sera un objet de type Characater et servira à récupérer un personnage crée)
+            System.out.println("Liste des armes du guerrier :");
             for (int i = 0; i < weaponList.size(); i++) {
                 System.out.println(i + " - " + weaponList.get(i).name);
             }
         } else if (charaGetType.equals("Magicien")) {
+            System.out.println("Liste des sorts du magicien :");
             for (int j = 0; j < spellList.size(); j++) {
                 System.out.println(j + " - " + spellList.get(j).name);
             }
         }
+        System.out.print("Prépare-toi à jouer\n");
     }
 
     //-------------------méthode pour se déplacer sur le plateau-----------------------
