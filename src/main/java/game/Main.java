@@ -1,12 +1,11 @@
 package game;
 
-import box.AddWeapon;
-import box.Bonus;
-import box.SurpriseCase;
+import box.*;
 import character.Character;
 import equipment.Weapon;
 import equipment.Spell;
 
+import java.lang.reflect.Array;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -39,6 +38,7 @@ public class Main {
         chooseEquipment(weaponList, spellList);
         moveCase();
         playAgain();
+        
 
     }
 
@@ -123,19 +123,51 @@ public class Main {
 
     //-----------------caisse surprise arme----------------------
     public static void weaponSurprise() {
+        int i;
         ArrayList<SurpriseCase> addWeaponArrayList = new ArrayList<SurpriseCase>();
         SurpriseCase s4 = new SurpriseCase(new AddWeapon("bombe", 100));
         addWeaponArrayList.add(s4);
         SurpriseCase s5 = new SurpriseCase(new AddWeapon("hache", 25));
         addWeaponArrayList.add(s5);
-        int i;
         for (i = 0; i < addWeaponArrayList.size(); i++) {
             System.out.println(addWeaponArrayList.get(i));
         }
     }
 
-    //----------------ajout bouclier-----------------
+   //----------------caisse surprise bouclier---------------
+    public static void shieldSurprise(){
+        ArrayList<SurpriseCase> addShieldList = new ArrayList<SurpriseCase>();
+        SurpriseCase sh1 = new SurpriseCase(new addShield( 5));
+        addShieldList.add(sh1);
+        SurpriseCase sh2 = new SurpriseCase(new addShield(3));
+        addShieldList.add(sh2);
+        SurpriseCase sh3 = new SurpriseCase(new addShield( 2));
+        addShieldList.add(sh3);
+        System.out.println(sh1 +"\n" + sh2 +"\n" +sh3);
 
+    }
+
+    //-------------------caisse surprise philtre------------------
+    public static void philterSurprise() {
+        ArrayList<SurpriseCase> addPhilterList = new ArrayList<SurpriseCase>();
+        SurpriseCase ph1 = new SurpriseCase(new addPhilter(5));
+        addPhilterList.add(ph1);
+        SurpriseCase ph2 = new SurpriseCase(new addPhilter(3));
+        addPhilterList.add(ph2);
+        SurpriseCase ph3 = new SurpriseCase(new addPhilter(5));
+        addPhilterList.add(ph3);
+        System.out.println(ph1 + "\n" + ph2 + "\n" + ph3);
+    }
+
+    //------------------caisse surprise sort---------------------
+    public static void spellSurprise(){
+        ArrayList<SurpriseCase> addSpellList = new ArrayList<SurpriseCase>();
+        SurpriseCase sp1 = new SurpriseCase(new addSpell("Boule de feu", 50));
+        addSpellList.add(sp1);
+        SurpriseCase sp2 = new SurpriseCase(new addSpell("Lévitation", 25));
+        addSpellList.add(sp2);
+        System.out.println(sp1 + "\n" + sp2);
+    }
 
 }
 
