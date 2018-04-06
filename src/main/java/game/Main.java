@@ -182,12 +182,11 @@ public class Main {
     }
 
     //--------------méthode pour choisir armes ou sorts---------------------
-    public static void chooseEquipment(ArrayList<Weapon> weaponList, ArrayList<Spell> spellList)
-    {
-    	String test;
+    public static void chooseEquipment(ArrayList<Weapon> weaponList, ArrayList<Spell> spellList) {
+        String test;
         if (classe.equals("1")) {
             for (int i = 0; i < weaponList.size(); i++) {
-                System.out.println(+ i + " - " + weaponList.get(i).name);
+                System.out.println(+i + " - " + weaponList.get(i).name);
             }
             do {
                 System.out.println("Choisis une arme");
@@ -201,6 +200,8 @@ public class Main {
                 }
 
             } while (!(test.equals("0") || test.equals("1") || test.equals("2")));
+
+        } else if (classe.equals("2")) {
 
             for (int j = 0; j < spellList.size(); j++) {
                 System.out.println(j + " - " + spellList.get(j).name);
