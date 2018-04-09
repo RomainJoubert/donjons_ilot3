@@ -5,6 +5,8 @@ import character.Character;
 import equipment.Weapon;
 import equipment.Spell;
 
+import game.Board;
+
 
 import opponent.Opponent;
 import opponent.Dragon;
@@ -241,6 +243,14 @@ public class Main {
         SurpriseCase sp2 = new SurpriseCase(new addSpell("Lévitation", 25));
         addSpellList.add(sp2);
         System.out.println(sp1 + "\n" + sp2);
+    }
+
+    //----------------pour tirer 27 cases aléatoires-----------------
+    public static void draw (String[] args) {
+        Pioche maListe = new Pioche(64);
+        for (int i=0; i<27;i++){
+            System.out.println(maListe.getPif());
+        }
     }
 }
 
