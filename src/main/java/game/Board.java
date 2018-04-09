@@ -1,6 +1,7 @@
 package game;
 
 public class Board {
+
     private String CaseType;
     private int cases;
 
@@ -20,7 +21,9 @@ public class Board {
         CaseType = caseType;
     }
 
+
     public String getCaseType() {
         return CaseType;
     }
+
 }

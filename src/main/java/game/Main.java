@@ -15,6 +15,8 @@ import character.Magician;
 import equipment.Weapon;
 import equipment.Spell;
 
+import game.Board;
+
 
 import opponent.Opponent;
 import opponent.Dragon;
@@ -314,6 +316,15 @@ public class Main {
         System.out.println(sp1 + "\n" + sp2);
     }
 
+
+    //----------------pour tirer 27 cases aléatoires-----------------
+    public static void draw (String[] args) {
+        Pioche maListe = new Pioche(64);
+        for (int i=0; i<27;i++){
+            System.out.println(maListe.getPif());
+        }
+    }
+
     //---------------caisse bonus----------------------------
     public static int bonusSurprise(int currentCase) {
         System.out.println("Tu es tombé sur la case surprise 'bonus', tu avances de 5 cases");
@@ -348,6 +359,7 @@ public class Main {
         System.out.println("Ton niveau de vie est de : " + levelLifeCharacter);
         return levelLifeCharacter;
     }
+
 
 
 }
