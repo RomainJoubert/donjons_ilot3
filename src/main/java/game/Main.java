@@ -1,7 +1,16 @@
 package game;
 
 import box.*;
+import java.util.*;
+import java.util.Map.Entry;
+
+import box.AddWeapon;
+import box.Bonus;
+import box.addShield;
+import box.SurpriseCase;
 import character.Character;
+import character.Warrior;
+import character.Magician;
 import equipment.Weapon;
 import equipment.Spell;
 
@@ -20,24 +29,27 @@ import java.util.Random;
 public class Main {
     private static Scanner sc = new Scanner(System.in);
     static String charaGetType;
+    static String classe;
+    static Warrior X;
+    static Magician Y;
+    static Weapon w1 = new Weapon("Arc", 50, 25, 0);
+    static Weapon w2 = new Weapon("Massue", 30, 30, 30);
+    static Weapon w3 = new Weapon("Epée", 25, 25, 25);
+    static Spell s1 = new Spell("Eclair", 25, 0, 50);
+    static Spell s2 = new Spell("Invisibilité", 30, 30, 30);
+    static Spell s3 = new Spell("Mur de feu", 25, 25, 25);
 
     public static void main(String[] args) {
 
         ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
-        Weapon w1 = new Weapon("Arc", 50, 25, 0);
         weaponList.add(w1);
-        Weapon w2 = new Weapon("Massue", 30, 30, 30);
         weaponList.add(w2);
-        Weapon w3 = new Weapon("Epée", 25, 25, 25);
         weaponList.add(w3);
 
         //------------------liste des sorts-----------------------------------
         ArrayList<Spell> spellList = new ArrayList<Spell>();
-        Spell s1 = new Spell("Eclair", 25, 0, 50);
         spellList.add(s1);
-        Spell s2 = new Spell("Invisibilité", 30, 30, 30);
         spellList.add(s2);
-        Spell s3 = new Spell("Mur de feu", 25, 25, 25);
         spellList.add(s3);
 
         ArrayList<Dragon> dragonList = new ArrayList<Dragon>();
@@ -64,33 +76,57 @@ public class Main {
         Wizzard wz4 = new Wizzard(15);
         wizzardList.add(wz4);
 
-        ArrayList<Succubi> succubiList = new ArrayList<Succubi>();
-        Succubi suc1 = new Succubi(75);
-        succubiList.add(suc1);
-        Succubi suc2 = new Succubi(50);
-        succubiList.add(suc2);
-        Succubi suc3 = new Succubi(25);
-        succubiList.add(suc3);
-        Succubi suc4 = new Succubi(15);
-        succubiList.add(suc4);
+
 
 //-----------------jeu-----------------------------------------
         showMenu();
         createCharacter();
         chooseEquipment(weaponList, spellList);
-        attributeNumberCaseToOpponent();
+//        attributeNumberCaseToOpponent();
         moveCase();
+
     }
 
-
+    //--------------méthode qui attribut une case à un ennemi-------------------
     public static void attributeNumberCaseToOpponent() {
         int cases[] = new int[65]; //tableau de cases, de 0 à 65.
+        int currentCase = 0;
+        Succubi opponentSelected = null;
+
+        ArrayList<Succubi> succubiList = new ArrayList<Succubi>();
+        Succubi suc1 = new Succubi("Succube", 75);
+        succubiList.add(suc1);
+        Succubi suc2 = new Succubi("Succube", 50);
+        succubiList.add(suc2);
+        Succubi suc3 = new Succubi("Succube", 25);
+        succubiList.add(suc3);
+        Succubi suc4 = new Succubi("Succube", 15);
+        succubiList.add(suc4);
 
         for (int i = 1; i < cases.length; i++) {
             Random rn = new Random(i);
-            int currentCase = rn.nextInt(i) + 1;
+            currentCase = rn.nextInt(i) + 1;
             System.out.println(currentCase);
+
         }
+
+        for (int j = 1; j < succubiList.size() + 1; j++) {
+            Random rn = new Random(j);
+            int number = rn.nextInt(j) + 1;
+            System.out.println("Nombre tiré " + number);
+            opponentSelected = succubiList.get(number);
+            System.out.println(opponentSelected.name + "\nNiveau d'attack : " + opponentSelected.attackLevel);
+        }
+
+        /*HashMap board = new HashMap();
+        board.put(currentCase, opponentSelected.name);
+
+        Iterator<Entry <Integer,String >> itr = board.iterator();
+
+        while (itr.hasNext()) {
+            Object element = itr.next();
+            System.out.print(element.getKey() + element.getValue());
+        }*/
     }
 
     //--------------méthode qui affiche le menu-------------------
@@ -98,45 +134,93 @@ public class Main {
         // String chType;
         int test;
         String input;
-        do {
-            System.out.println("Choisis un personnage \n1-Guerrier \n2-Magicien");
-            input = sc.nextLine();
-            try {
-                test = Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                System.out.printf("\"%s\" n'est pas valide.\n", input);
+
+
+		do {
+			System.out.println("Choisis un personnage \n1-Guerrier \n2-Magicien");
+			input = sc.nextLine();
+			try {
+				test = Integer.parseInt(input);
+			}
+			catch(NumberFormatException e)
+			{
+				System.out.printf("\"%s\" n'est pas valide.\n", input);
+			}
+         } while (!(input.equals("1") || input.equals("2")));
+       if(input.equals("1")) {
+    	   classe = "1";
+        }else if (input.equals("2")){
+        	classe = "2";
             }
-        } while (!(input.equals("1") || input.equals("2")));
-        if (input.equals("1")) {
-            charaGetType = "Guerrier";
-        } else if (input.equals("2")) {
-            charaGetType = "Magicien";
-        }
     }
 
     //--------------méthode pour créer un personnage-------------------
     public static void createCharacter() {
-        System.out.println("Entre le nom de ton personnage");
-        String nameChoice = sc.nextLine();
+
+
+    	if (classe.equals("1")) {
+    		createWarrior();
+    	} else {
+    		createMagician();
+    	}
+    }
+
+    public static void createWarrior() {
+        X = new Warrior();
+        System.out.println("Entre le nom de ton guerrier");
+        X.setName(sc.nextLine());
         System.out.println("Ajoute une image");
-        String pictureChoice = sc.nextLine();
-        System.out.println("Ton personnage porte le nom de " + nameChoice + " et a l'image : " + pictureChoice);
+        X.setPicture(sc.nextLine());
+        System.out.println("Ton Guerrier porte le nom de " + X.getName() + " et a l'image : " + X.getPicture());
+    }
+
+    public static void createMagician() {
+        Y = new Magician();
+        System.out.println("Entre le nom de ton magicien");
+        Y.setName(sc.nextLine());
+        System.out.println("Ajoute une image");
+        Y.setPicture(sc.nextLine());
+        System.out.println("Ton Magicien porte le nom de " + Y.getName() + " et a l'image : " + Y.getPicture());
     }
 
     //--------------méthode pour choisir armes ou sorts---------------------
     public static void chooseEquipment(ArrayList<Weapon> weaponList, ArrayList<Spell> spellList) {
-        //String charaGetType = "Magicien"; juste pour tester tant que les perso ne sont pas stockés, à enlever ensuite.
-
-        if (charaGetType.equals("Guerrier")) { //remplacer par chara.getType (chara sera un objet de type Characater et servira à récupérer un personnage crée)
+        String test;
+        if (classe.equals("1")) {
             for (int i = 0; i < weaponList.size(); i++) {
-                System.out.println(i + " - " + weaponList.get(i).name);
+                System.out.println(+i + " - " + weaponList.get(i).name);
             }
+            do {
+                System.out.println("Choisis une arme");
+                test = sc.nextLine();
+                if (test.equals("0")) {
+                    X.setWeapon(w1);
+                } else if (test.equals("1")) {
+                    X.setWeapon(w2);
+                } else if (test.equals("2")) {
+                    X.setWeapon(w3);
+                }
 
-        } else if (charaGetType.equals("Magicien")) {
+            } while (!(test.equals("0") || test.equals("1") || test.equals("2")));
+
+        } else if (classe.equals("2")) {
+
             for (int j = 0; j < spellList.size(); j++) {
                 System.out.println(j + " - " + spellList.get(j).name);
             }
+            do {
+                System.out.println("Choisis un sort");
+                test = sc.nextLine();
+                if (test.equals("0")) {
+                    Y.setSpell(s1);
+                } else if (test.equals("1")) {
+                    Y.setSpell(s2);
+                } else if (test.equals("2")) {
+                    Y.setSpell(s3);
+                }
+            } while (!(test.equals("0") || test.equals("1") || test.equals("2")));
         }
+
     }
 
     //-------------------méthode pour se déplacer sur le plateau-----------------------
@@ -196,32 +280,30 @@ public class Main {
     public static void weaponSurprise() {
         int i;
         ArrayList<SurpriseCase> addWeaponArrayList = new ArrayList<SurpriseCase>();
-        SurpriseCase s4 = new SurpriseCase(new AddWeapon("bombe", 100));
+
+        SurpriseCase s4 = new SurpriseCase(new AddWeapon("bombe", 100,20,20,20));
         addWeaponArrayList.add(s4);
-        SurpriseCase s5 = new SurpriseCase(new AddWeapon("hache", 25));
+        SurpriseCase s5 = new SurpriseCase(new AddWeapon("hache", 25,10,10,10));
+
         addWeaponArrayList.add(s5);
+
         for (i = 0; i < addWeaponArrayList.size(); i++) {
-            System.out.println(addWeaponArrayList.get(i));
+            addWeaponArrayList.get(i);
+            System.out.println("Tu es tombé sur la case surprise 'arme', tu récupères une " + addWeaponArrayList.get(i));
         }
     }
 
     //----------------caisse surprise bouclier---------------
     public static void shieldSurprise() {
         ArrayList<SurpriseCase> addShieldList = new ArrayList<SurpriseCase>();
-
         SurpriseCase sh1 = new SurpriseCase(new addShield(5));
-
         addShieldList.add(sh1);
         SurpriseCase sh2 = new SurpriseCase(new addShield(3));
         addShieldList.add(sh2);
-
         SurpriseCase sh3 = new SurpriseCase(new addShield(2));
-
         addShieldList.add(sh3);
         System.out.println(sh1 + "\n" + sh2 + "\n" + sh3);
-
     }
-
 
     //-------------------caisse surprise philtre------------------
     public static void philterSurprise() {
@@ -245,6 +327,7 @@ public class Main {
         System.out.println(sp1 + "\n" + sp2);
     }
 
+
     //----------------pour tirer 27 cases aléatoires-----------------
     public static void draw (String[] args) {
         Pioche maListe = new Pioche(64);
@@ -252,6 +335,44 @@ public class Main {
             System.out.println(maListe.getPif());
         }
     }
+
+    //---------------caisse bonus----------------------------
+    public static int bonusSurprise(int currentCase) {
+        System.out.println("Tu es tombé sur la case surprise 'bonus', tu avances de 5 cases");
+        Bonus bonus = new Bonus(5);
+        currentCase = currentCase + bonus.getCases();
+        System.out.println("Tu es à la case : " + currentCase + "/64");
+        return currentCase;
+    }
+
+    //--------------caisse malus-------------------
+    public static int malusSurprise(int currentCase) {
+        System.out.println("Tu es tombé sur la case surprise 'malus', tu recules de 5 cases");
+        Malus malus = new Malus(5);
+        currentCase = currentCase - malus.getCases();
+        System.out.println("Tu es à la case : " + currentCase + "/64");
+        return currentCase;
+    }
+
+    //-----------------2 caisses joker--------------
+    public int jokerSurprise25(int levelLifeCharacter) {
+        System.out.println("Tu es tombé sur la case joker \nTu gagnes 25 points de vie");
+        Joker joker1 = new Joker(25);
+        levelLifeCharacter = levelLifeCharacter + joker1.getLife();
+        System.out.println("Ton niveau de vie est de : " + levelLifeCharacter);
+        return levelLifeCharacter;
+    }
+
+    public int jokerSurprise50(int levelLifeCharacter) {
+        System.out.println("Tu es tombé sur la case joker \nTu gagnes 50 points de vie");
+        Joker joker2 = new Joker(50);
+        levelLifeCharacter = levelLifeCharacter + joker2.getLife();
+        System.out.println("Ton niveau de vie est de : " + levelLifeCharacter);
+        return levelLifeCharacter;
+    }
+
+
+
 }
 
 

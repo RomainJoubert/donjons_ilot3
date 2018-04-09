@@ -1,16 +1,18 @@
 package character;
 
+import equipment.Spell;
+
 public class Magician extends Character {
-	private String spell;
+	private Spell spell;
     private int spellLevel;
     private String potion;
     private int potionLevel;
 
-    public String getSpell() {
+    public Spell getSpell() {
         return spell;
     }
 
-    public void setSpell(String spell) {
+    public void setSpell(Spell spell) {
         this.spell = spell;
     }
 

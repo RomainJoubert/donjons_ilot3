@@ -1,4 +1,5 @@
 package box;
+import equipment.Weapon;
 
 
 public class SurpriseCase {
@@ -17,7 +18,7 @@ public class SurpriseCase {
     }
 
     public String toString() {
-        return "création caisse : \n" + this.surprise;
+        return "" + this.surprise;
 
     }
 
