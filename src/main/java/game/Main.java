@@ -1,6 +1,7 @@
 package game;
 
 import box.*;
+
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -75,7 +76,6 @@ public class Main {
         wizzardList.add(wz4);
 
 
-
 //-----------------jeu-----------------------------------------
         showMenu();
         createCharacter();
@@ -105,9 +105,7 @@ public class Main {
             Random rn = new Random(i);
             currentCase = rn.nextInt(i) + 1;
             System.out.println(currentCase);
-
         }
-
         for (int j = 1; j < succubiList.size() + 1; j++) {
             Random rn = new Random(j);
             int number = rn.nextInt(j) + 1;
@@ -133,34 +131,29 @@ public class Main {
         int test;
         String input;
 
-
-		do {
-			System.out.println("Choisis un personnage \n1-Guerrier \n2-Magicien");
-			input = sc.nextLine();
-			try {
-				test = Integer.parseInt(input);
-			}
-			catch(NumberFormatException e)
-			{
-				System.out.printf("\"%s\" n'est pas valide.\n", input);
-			}
-         } while (!(input.equals("1") || input.equals("2")));
-       if(input.equals("1")) {
-    	   classe = "1";
-        }else if (input.equals("2")){
-        	classe = "2";
+        do {
+            System.out.println("Choisis un personnage \n1-Guerrier \n2-Magicien");
+            input = sc.nextLine();
+            try {
+                test = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.printf("\"%s\" n'est pas valide.\n", input);
             }
+        } while (!(input.equals("1") || input.equals("2")));
+        if (input.equals("1")) {
+            classe = "1";
+        } else if (input.equals("2")) {
+            classe = "2";
+        }
     }
 
     //--------------méthode pour créer un personnage-------------------
     public static void createCharacter() {
-
-
-    	if (classe.equals("1")) {
-    		createWarrior();
-    	} else {
-    		createMagician();
-    	}
+        if (classe.equals("1")) {
+            createWarrior();
+        } else {
+            createMagician();
+        }
     }
 
     public static void createWarrior() {
@@ -218,7 +211,6 @@ public class Main {
                 }
             } while (!(test.equals("0") || test.equals("1") || test.equals("2")));
         }
-
     }
 
     //-------------------méthode pour se déplacer sur le plateau-----------------------
@@ -278,13 +270,10 @@ public class Main {
     public static void weaponSurprise() {
         int i;
         ArrayList<SurpriseCase> addWeaponArrayList = new ArrayList<SurpriseCase>();
-
-        SurpriseCase s4 = new SurpriseCase(new AddWeapon("bombe", 100,20,20,20));
+        SurpriseCase s4 = new SurpriseCase(new AddWeapon("bombe", 100, 20, 20, 20));
         addWeaponArrayList.add(s4);
-        SurpriseCase s5 = new SurpriseCase(new AddWeapon("hache", 25,10,10,10));
-
+        SurpriseCase s5 = new SurpriseCase(new AddWeapon("hache", 25, 10, 10, 10));
         addWeaponArrayList.add(s5);
-
         for (i = 0; i < addWeaponArrayList.size(); i++) {
             addWeaponArrayList.get(i);
             System.out.println("Tu es tombé sur la case surprise 'arme', tu récupères une " + addWeaponArrayList.get(i));
