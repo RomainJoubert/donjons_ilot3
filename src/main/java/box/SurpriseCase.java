@@ -4,8 +4,17 @@ import equipment.Weapon;
 
 public class SurpriseCase {
     private Surprise surprise;
+    private int caseNum;
 
-    public SurpriseCase(Surprise surprise) {
+    public int getCaseNum() {
+		return caseNum;
+	}
+
+	public void setCaseNum(int caseNum) {
+		this.caseNum = caseNum;
+	}
+
+	public SurpriseCase(Surprise surprise) {
         this.surprise = surprise;
     }
 

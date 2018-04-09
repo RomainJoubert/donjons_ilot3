@@ -2,9 +2,18 @@ package opponent;
 
 public class Succubi extends Opponent {
 // combattent les guerriers - divise la force des armes des guerriers par deux
+	private int caseNum;
 
 
-        public Succubi( String name, int attackLevel ) {
+        public int getCaseNum() {
+		return caseNum;
+	}
+
+	public void setCaseNum(int caseNum) {
+		this.caseNum = caseNum;
+	}
+
+		public Succubi( String name, int attackLevel ) {
             this.name = name;
             this.attackLevel = attackLevel;
 

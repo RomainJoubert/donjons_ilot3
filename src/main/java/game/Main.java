@@ -38,7 +38,36 @@ public class Main {
     static Spell s1 = new Spell("Eclair", 25, 0, 50);
     static Spell s2 = new Spell("Invisibilité", 30, 30, 30);
     static Spell s3 = new Spell("Mur de feu", 25, 25, 25);
-
+    static Dragon d1 = new Dragon(80, 80);
+    static Dragon d2 = new Dragon(60, 60);
+    static Dragon d3 = new Dragon(40, 40);
+    static Dragon d4 = new Dragon(30, 30);
+    static Dragon d5 = new Dragon(20, 20);
+    static Dragon d6 = new Dragon(15, 15);
+    static Wizzard wz1 = new Wizzard(75);
+    static Wizzard wz2 = new Wizzard(50);
+    static Wizzard wz3 = new Wizzard(25);
+    static Wizzard wz4 = new Wizzard(15);
+    static Succubi suc1 = new Succubi("Succube", 75);
+    static Succubi suc2 = new Succubi("Succube", 50);
+    static Succubi suc3 = new Succubi("Succube", 25);
+    static Succubi suc4 = new Succubi("Succube", 15);
+    static SurpriseCase s4 = new SurpriseCase(new AddWeapon("bombe", 100,20,20,20));
+    static SurpriseCase s5 = new SurpriseCase(new AddWeapon("hache", 25,10,10,10));
+    static SurpriseCase sp1 = new SurpriseCase(new addSpell("Boule de feu", 50));
+    static SurpriseCase sp2 = new SurpriseCase(new addSpell("Lévitation", 25));
+    static SurpriseCase sh1 = new SurpriseCase(new addShield(5));
+    static SurpriseCase sh2 = new SurpriseCase(new addShield(3));
+    static SurpriseCase sh3 = new SurpriseCase(new addShield(2));
+    static SurpriseCase ph1 = new SurpriseCase(new addPhilter(5));
+    static SurpriseCase ph2 = new SurpriseCase(new addPhilter(3));
+    static SurpriseCase ph3 = new SurpriseCase(new addPhilter(2));
+    static Bonus bonus = new Bonus(5);
+    static Malus m1 = new Malus(5);
+    static Malus m2 = new Malus(5);
+    static Joker joker1 = new Joker(25);
+    static Joker joker2 = new Joker(50);
+    static Pioche maListe = new Pioche();
     public static void main(String[] args) {
 
         ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
@@ -53,27 +82,27 @@ public class Main {
         spellList.add(s3);
 
         ArrayList<Dragon> dragonList = new ArrayList<Dragon>();
-        Dragon d1 = new Dragon(80, 80);
+        d1.setCaseNum(maListe.getListID().get(1));
         dragonList.add(d1);
-        Dragon d2 = new Dragon(60, 60);
+        d2.setCaseNum(maListe.getListID().get(2));
         dragonList.add(d2);
-        Dragon d3 = new Dragon(40, 40);
+        d3.setCaseNum(maListe.getListID().get(3));
         dragonList.add(d3);
-        Dragon d4 = new Dragon(30, 30);
+        d4.setCaseNum(maListe.getListID().get(4));
         dragonList.add(d4);
-        Dragon d5 = new Dragon(20, 20);
+        d5.setCaseNum(maListe.getListID().get(5));
         dragonList.add(d5);
-        Dragon d6 = new Dragon(15, 15);
+        d6.setCaseNum(maListe.getListID().get(6));
         dragonList.add(d6);
 
         ArrayList<Wizzard> wizzardList = new ArrayList<Wizzard>();
-        Wizzard wz1 = new Wizzard(75);
+        wz1.setCaseNum(maListe.getListID().get(7));
         wizzardList.add(wz1);
-        Wizzard wz2 = new Wizzard(50);
+        wz2.setCaseNum(maListe.getListID().get(8));
         wizzardList.add(wz2);
-        Wizzard wz3 = new Wizzard(25);
+        wz3.setCaseNum(maListe.getListID().get(9));
         wizzardList.add(wz3);
-        Wizzard wz4 = new Wizzard(15);
+        wz4.setCaseNum(maListe.getListID().get(10));
         wizzardList.add(wz4);
 
 
@@ -84,7 +113,7 @@ public class Main {
         chooseEquipment(weaponList, spellList);
 //        attributeNumberCaseToOpponent();
         moveCase();
-        draw();
+        draw(args);
 
     }
 
@@ -95,13 +124,13 @@ public class Main {
         Succubi opponentSelected = null;
 
         ArrayList<Succubi> succubiList = new ArrayList<Succubi>();
-        Succubi suc1 = new Succubi("Succube", 75);
+        suc1.setCaseNum(maListe.getListID().get(11));
         succubiList.add(suc1);
-        Succubi suc2 = new Succubi("Succube", 50);
+        suc2.setCaseNum(maListe.getListID().get(12));
         succubiList.add(suc2);
-        Succubi suc3 = new Succubi("Succube", 25);
+        suc3.setCaseNum(maListe.getListID().get(13));
         succubiList.add(suc3);
-        Succubi suc4 = new Succubi("Succube", 15);
+        suc4.setCaseNum(maListe.getListID().get(14));
         succubiList.add(suc4);
 
         for (int i = 1; i < cases.length; i++) {
@@ -171,6 +200,7 @@ public class Main {
         System.out.println("Entre le nom de ton guerrier");
         X.setName(sc.nextLine());
         System.out.println("Ajoute une image");
+        System.out.println(d1.getCaseNum());
         X.setPicture(sc.nextLine());
         System.out.println("Ton Guerrier porte le nom de " + X.getName() + " et a l'image : " + X.getPicture());
     }
@@ -282,10 +312,9 @@ public class Main {
         int i;
         ArrayList<SurpriseCase> addWeaponArrayList = new ArrayList<SurpriseCase>();
 
-        SurpriseCase s4 = new SurpriseCase(new AddWeapon("bombe", 100,20,20,20));
+        s4.setCaseNum(maListe.getListID().get(15));
         addWeaponArrayList.add(s4);
-        SurpriseCase s5 = new SurpriseCase(new AddWeapon("hache", 25,10,10,10));
-
+        s5.setCaseNum(maListe.getListID().get(16));
         addWeaponArrayList.add(s5);
 
         for (i = 0; i < addWeaponArrayList.size(); i++) {
@@ -297,11 +326,11 @@ public class Main {
     //----------------caisse surprise bouclier---------------
     public static void shieldSurprise() {
         ArrayList<SurpriseCase> addShieldList = new ArrayList<SurpriseCase>();
-        SurpriseCase sh1 = new SurpriseCase(new addShield(5));
+        sh1.setCaseNum(maListe.getListID().get(17));
         addShieldList.add(sh1);
-        SurpriseCase sh2 = new SurpriseCase(new addShield(3));
+        sh2.setCaseNum(maListe.getListID().get(18));
         addShieldList.add(sh2);
-        SurpriseCase sh3 = new SurpriseCase(new addShield(2));
+        sh3.setCaseNum(maListe.getListID().get(19));
         addShieldList.add(sh3);
         System.out.println(sh1 + "\n" + sh2 + "\n" + sh3);
     }
@@ -309,11 +338,11 @@ public class Main {
     //-------------------caisse surprise philtre------------------
     public static void philterSurprise() {
         ArrayList<SurpriseCase> addPhilterList = new ArrayList<SurpriseCase>();
-        SurpriseCase ph1 = new SurpriseCase(new addPhilter(5));
+        ph1.setCaseNum(maListe.getListID().get(20));
         addPhilterList.add(ph1);
-        SurpriseCase ph2 = new SurpriseCase(new addPhilter(3));
+        ph2.setCaseNum(maListe.getListID().get(21));
         addPhilterList.add(ph2);
-        SurpriseCase ph3 = new SurpriseCase(new addPhilter(5));
+        ph3.setCaseNum(maListe.getListID().get(22));
         addPhilterList.add(ph3);
         System.out.println(ph1 + "\n" + ph2 + "\n" + ph3);
     }
@@ -321,26 +350,27 @@ public class Main {
     //------------------caisse surprise sort---------------------
     public static void spellSurprise() {
         ArrayList<SurpriseCase> addSpellList = new ArrayList<SurpriseCase>();
-        SurpriseCase sp1 = new SurpriseCase(new addSpell("Boule de feu", 50));
+        sp1.setCaseNum(maListe.getListID().get(23));
         addSpellList.add(sp1);
-        SurpriseCase sp2 = new SurpriseCase(new addSpell("Lévitation", 25));
+        sp2.setCaseNum(maListe.getListID().get(24));
         addSpellList.add(sp2);
         System.out.println(sp1 + "\n" + sp2);
     }
 
 
     //----------------pour tirer 27 cases aléatoires-----------------
-    public static void draw () {
-        Pioche maListe = new Pioche(64);
+    public static void draw (String[] args) {
+        Pioche maListe = new Pioche();
         for (int i=0; i<27;i++){
-            System.out.println(maListe.getPif());
+            System.out.println(maListe.getListID().get(i));
         }
+        
     }
 
     //---------------caisse bonus----------------------------
     public static int bonusSurprise(int currentCase) {
         System.out.println("Tu es tombé sur la case surprise 'bonus', tu avances de 5 cases");
-        Bonus bonus = new Bonus(5);
+        bonus.setCaseNum(maListe.getListID().get(25));
         currentCase = currentCase + bonus.getCases();
         System.out.println("Tu es à la case : " + currentCase + "/64");
         return currentCase;
@@ -349,8 +379,10 @@ public class Main {
     //--------------caisse malus-------------------
     public static int malusSurprise(int currentCase) {
         System.out.println("Tu es tombé sur la case surprise 'malus', tu recules de 5 cases");
-        Malus malus = new Malus(5);
-        currentCase = currentCase - malus.getCases();
+        m1.setCaseNum(maListe.getListID().get(26));
+        currentCase = currentCase - m1.getCases();
+        m2.setCaseNum(maListe.getListID().get(27));
+        currentCase = currentCase - m2.getCases();
         System.out.println("Tu es à la case : " + currentCase + "/64");
         return currentCase;
     }
@@ -358,7 +390,7 @@ public class Main {
     //-----------------2 caisses joker--------------
     public int jokerSurprise25(int levelLifeCharacter) {
         System.out.println("Tu es tombé sur la case joker \nTu gagnes 25 points de vie");
-        Joker joker1 = new Joker(25);
+        joker1.setCaseNum(maListe.getListID().get(28));
         levelLifeCharacter = levelLifeCharacter + joker1.getLife();
         System.out.println("Ton niveau de vie est de : " + levelLifeCharacter);
         return levelLifeCharacter;
@@ -366,7 +398,7 @@ public class Main {
 
     public int jokerSurprise50(int levelLifeCharacter) {
         System.out.println("Tu es tombé sur la case joker \nTu gagnes 50 points de vie");
-        Joker joker2 = new Joker(50);
+        joker2.setCaseNum(maListe.getListID().get(29));
         levelLifeCharacter = levelLifeCharacter + joker2.getLife();
         System.out.println("Ton niveau de vie est de : " + levelLifeCharacter);
         return levelLifeCharacter;
