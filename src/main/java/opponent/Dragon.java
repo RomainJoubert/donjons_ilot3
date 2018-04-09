@@ -2,9 +2,20 @@ package opponent;
 
 public class Dragon extends Opponent {
 // combattent guerriers et magiciens. Plus ils sont vieux et plus leur force d'attaque est élevée.
-    private int age ;
+    private int age;
+    private int caseNum;
+	
+	
 
-    public Dragon(int dragonAge , int attackLevel) {
+    public int getCaseNum() {
+		return caseNum;
+	}
+
+	public void setCaseNum(int caseNum) {
+		this.caseNum = caseNum;
+	}
+
+	public Dragon(int dragonAge , int attackLevel) {
         this.age = dragonAge;
         this.attackLevel = attackLevel;
 
