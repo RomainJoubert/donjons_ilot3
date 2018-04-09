@@ -84,6 +84,7 @@ public class Main {
         chooseEquipment(weaponList, spellList);
 //        attributeNumberCaseToOpponent();
         moveCase();
+        draw();
 
     }
 
@@ -329,7 +330,7 @@ public class Main {
 
 
     //----------------pour tirer 27 cases aléatoires-----------------
-    public static void draw (String[] args) {
+    public static void draw () {
         Pioche maListe = new Pioche(64);
         for (int i=0; i<27;i++){
             System.out.println(maListe.getPif());
