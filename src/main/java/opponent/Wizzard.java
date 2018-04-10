@@ -1,7 +1,17 @@
 package opponent;
 
 public class Wizzard extends Opponent {
-    public Wizzard(int attackLevel) {
+	private int caseNum;
+	
+    public int getCaseNum() {
+		return caseNum;
+	}
+
+	public void setCaseNum(int caseNum) {
+		this.caseNum = caseNum;
+	}
+
+	public Wizzard(int attackLevel) {
         this.attackLevel = attackLevel;
     }
 
@@ -15,7 +25,6 @@ public class Wizzard extends Opponent {
 
     public String toString() {
         return "\n son niveau d'attaque ;" +attackLevel ;
-
 
     }
 // combattent les magiciens uniquement

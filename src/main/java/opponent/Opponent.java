@@ -1,7 +1,6 @@
 package opponent;
 
 public class Opponent {
-
     public int attackLevel;
     public String name;
     public int lifeLevelOpponent = 20;
@@ -23,7 +22,7 @@ public class Opponent {
     }
 
     public String toString() {
-        return "\n son niveau d'attaque ;" +attackLevel ;
+        return "\n son niveau d'attaque ;" + attackLevel;
 
 
     }

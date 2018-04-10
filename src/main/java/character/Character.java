@@ -6,7 +6,7 @@ public class Character {
     private String picture;
     private int life = 100;
     private int strengthCharacter =15;
-
+    private int caseNum;
 
    /* public Character(String name, String picture,int life, int attackLevel) {
         this.name = name;
@@ -15,8 +15,15 @@ public class Character {
         this.attackLevel = attackLevel;
     }*/
 
+    public int getCaseNum() {
+		return caseNum;
+	}
 
-    public String getName() {
+	public void setCaseNum(int caseNum) {
+		this.caseNum = caseNum;
+	}
+
+	public String getName() {
         return name;
     }
 
