@@ -200,7 +200,6 @@ public class Main {
         System.out.println("Entre le nom de ton guerrier");
         X.setName(sc.nextLine());
         System.out.println("Ajoute une image");
-        System.out.println(d1.getCaseNum());
         X.setPicture(sc.nextLine());
         System.out.println("Ton Guerrier porte le nom de " + X.getName() + " et a l'image : " + X.getPicture());
     }
