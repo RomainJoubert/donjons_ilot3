@@ -26,12 +26,9 @@ public class SurpriseCase {
         this.surprise = surprise;
     }
 
+
+    @Override
     public String toString() {
-        return "" + this.surprise;
-
+        return "Tu es tombé sur la case surprise" + surprise ;
     }
-
-
-
-
 }

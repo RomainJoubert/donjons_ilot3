@@ -1,19 +1,13 @@
 package character;
 
-public class Character {
+public abstract class Character {
     private String name;
     private String chType;
     private String picture;
-    private int life = 100;
-    private int strengthCharacter =15;
+    private int life;
+    private int strengthCharacter;
     private int caseNum;
 
-   /* public Character(String name, String picture,int life, int attackLevel) {
-        this.name = name;
-        this.picture = picture;
-        this.life = life;
-        this.attackLevel = attackLevel;
-    }*/
 
     public int getCaseNum() {
 		return caseNum;

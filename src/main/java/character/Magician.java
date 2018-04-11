@@ -1,12 +1,12 @@
 package character;
 
+import box.AddPhilter;
 import equipment.Spell;
 
 public class Magician extends Character {
 	private Spell spell;
-    private int spellLevel;
-    private String potion;
-    private int potionLevel;
+
+	private AddPhilter philter;
 
     public Spell getSpell() {
         return spell;
@@ -16,34 +16,15 @@ public class Magician extends Character {
         this.spell = spell;
     }
 
-    public int getSpellLevel() {
-        return spellLevel;
+    public AddPhilter getPhilter() {
+        return philter;
     }
 
-    public void setSpellLevel(int spellLevel) {
-        this.spellLevel = spellLevel;
-    }
-
-    public String getPotion() {
-        return potion;
-    }
-
-    public void setPotion(String potion) {
-        this.potion = potion;
-    }
-
-    public int getPotionLevel() {
-        return potionLevel;
-    }
-
-    public void setPotionLevel(int potionLevel) {
-        this.potionLevel = potionLevel;
+    public void setPhilter(AddPhilter philter) {
+        this.philter = philter;
     }
 
     public String toString() {
-        return "Sort : " + spell +
-                "\nPuissance du sort : " + spellLevel +
-                "\nPhiltre : " + potion +
-                "\nPuissance du philtre : " + potionLevel;
+        return "Sort : " + spell;
     }
 }

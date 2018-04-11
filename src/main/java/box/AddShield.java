@@ -1,11 +1,12 @@
 package box;
 
-public class addShield extends Surprise {
+
+import game.Board;
+
+public class AddShield implements Surprise {
     private int shieldLevel;
 
-
-    public addShield(int shieldLevel) {
-
+    public AddShield(int shieldLevel) {
         this.shieldLevel = shieldLevel;
     }
 
@@ -15,6 +16,11 @@ public class addShield extends Surprise {
 
     public void setShieldLevel(int shieldLevel) {
         this.shieldLevel = shieldLevel;
+    }
+
+    @Override
+    public void faireAction(Board b, character.Character c) {
+
     }
 
     @Override

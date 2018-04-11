@@ -1,29 +1,13 @@
 package box;
 
-public class Bonus extends Surprise{
-    private int cases;
-    private int caseNum;
+import game.Board;
 
-    public Bonus(int cases) {
-        this.cases = cases;
+public class Bonus implements Surprise{
+
+
+    @Override
+    public void faireAction(Board b, character.Character c) {
+        b.setCases(b.getCases() + 5);
+
     }
-
-    public int getCases() {
-        return cases;
-    }
-
-    public void setCases(int cases) {
-        this.cases = cases;
-    }
-
-	public void setCaseNum(Integer integer) {
-		this.caseNum = caseNum;
-		
-	}
-	
-	public int getCaseNum() {
-		return caseNum;
-	}
-
-
 }

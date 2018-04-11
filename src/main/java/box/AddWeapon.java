@@ -1,20 +1,18 @@
 package box;
 
-public class AddWeapon extends Surprise{
+import character.Warrior;
+import equipment.Weapon;
+import game.Board;
+
+public class AddWeapon implements Surprise{
     private String weaponName;
-    private int weaponAttackLevel;
-    private int attackDragon;
-    private int attackSuccubus;
-    private int attackWizzard;
+    private int weaponLevel;
 
-
-    public AddWeapon(String weaponName,int weaponAttackLevel,int attackDragon, int attackSuccubus, int attackWizzard ) {
+    public AddWeapon(String weaponName, int weaponLevel) {
         this.weaponName = weaponName;
-        this.weaponAttackLevel = weaponAttackLevel;
-        this.attackDragon =attackDragon;
-        this.attackSuccubus =  attackSuccubus;
-        this.attackWizzard = attackWizzard;
+        this.weaponLevel = weaponLevel;
     }
+
 
     public String getWeaponName() {
         return weaponName;
@@ -24,17 +22,31 @@ public class AddWeapon extends Surprise{
         this.weaponName = weaponName;
     }
 
-    public int weaponAttackLevel() {
-        return weaponAttackLevel;
+    public int getWeaponLevel() {
+        return weaponLevel;
     }
 
-    public void weaponAttackLevel(int weaponAttackLevel) {
-        this.weaponAttackLevel = weaponAttackLevel;
+    public void setWeaponLevel(int weaponLevel) {
+        this.weaponLevel = weaponLevel;
     }
 
+    @Override
     public String toString() {
-        return "" +this.weaponName + " de niveau d'attaque " + this.weaponAttackLevel;
-
+        return ", tu récupères une arme " +weaponName + " d'une force d'attaque de " + weaponLevel;
     }
 
+    /**
+     * Cette methode sert à executer l'action qui consiste à demandeer à l'utilisateur s'il veux changer d'arme
+     * @param b : le plateu de jeu
+     * @param c : le personnage
+     *
+     */
+    @Override
+    public void faireAction(Board b, character.Character c) {
+        //chercherArme
+        Weapon w = null;//=.....
+        //si warrior proposition changer arme
+        //si oui
+        ((Warrior)c).setWeapon(w);
+    }
 }

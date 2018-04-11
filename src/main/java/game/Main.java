@@ -2,20 +2,14 @@ package game;
 
 import box.*;
 
-import java.util.*;
-import java.util.Map.Entry;
-
 import box.AddWeapon;
 import box.Bonus;
-import box.addShield;
+import box.AddShield;
 import box.SurpriseCase;
 import character.Character;
 import character.Warrior;
 import character.Magician;
-import equipment.Weapon;
-import equipment.Spell;
-import game.Board;
-import opponent.Opponent;
+import equipment.*;
 import opponent.Dragon;
 import opponent.Wizzard;
 import opponent.Succubi;
@@ -33,12 +27,12 @@ public class Main {
     static Warrior X;
     static Magician Y;
 
-    static Weapon w1 = new Weapon("Arc", 50, 25);
-    static Weapon w2 = new Weapon("Massue", 30, 30);
-    static Weapon w3 = new Weapon("Epée", 25, 25);
-    static Spell s1 = new Spell("Eclair", 25, 50);
-    static Spell s2 = new Spell("Invisibilité", 30, 30);
-    static Spell s3 = new Spell("Mur de feu", 25, 25);
+    static Weapon w1 = new Bow("Arc", 50);
+    static Weapon w2 = new Club("Massue", 30);
+    static Weapon w3 = new Sword("Epée", 25);
+    static Spell s1 = new Ligthning("Eclair", 50);
+    static Spell s2 = new Invisibility("Invisibilité", 30);
+    static Spell s3 = new FireWall("Mur de feu", 25);
     static Dragon d1 = new Dragon(80, 80);
     static Dragon d2 = new Dragon(60, 60);
     static Dragon d3 = new Dragon(40, 40);
@@ -53,21 +47,21 @@ public class Main {
     static Succubi suc2 = new Succubi("Succube", 50);
     static Succubi suc3 = new Succubi("Succube", 25);
     static Succubi suc4 = new Succubi("Succube", 15);
-    static SurpriseCase s4 = new SurpriseCase(new AddWeapon("bombe", 100, 20, 20, 20));
-    static SurpriseCase s5 = new SurpriseCase(new AddWeapon("hache", 25, 10, 10, 10));
-    static SurpriseCase sp1 = new SurpriseCase(new addSpell("Boule de feu", 50));
-    static SurpriseCase sp2 = new SurpriseCase(new addSpell("Lévitation", 25));
-    static SurpriseCase sh1 = new SurpriseCase(new addShield(5));
-    static SurpriseCase sh2 = new SurpriseCase(new addShield(3));
-    static SurpriseCase sh3 = new SurpriseCase(new addShield(2));
-    static SurpriseCase ph1 = new SurpriseCase(new addPhilter(5));
-    static SurpriseCase ph2 = new SurpriseCase(new addPhilter(3));
-    static SurpriseCase ph3 = new SurpriseCase(new addPhilter(2));
-    static Bonus bonus = new Bonus(5);
-    static Malus m1 = new Malus(5);
-    static Malus m2 = new Malus(5);
-    static Joker joker1 = new Joker(25);
-    static Joker joker2 = new Joker(50);
+    static SurpriseCase s4 = new SurpriseCase(new AddWeapon("bombe", 100));
+    static SurpriseCase s5 = new SurpriseCase(new AddWeapon("hache", 25));
+    static SurpriseCase sp1 = new SurpriseCase(new AddSpell("Boule de feu", 50));
+    static SurpriseCase sp2 = new SurpriseCase(new AddSpell("Lévitation", 25));
+    static SurpriseCase sh1 = new SurpriseCase(new AddShield(5));
+    static SurpriseCase sh2 = new SurpriseCase(new AddShield(3));
+    static SurpriseCase sh3 = new SurpriseCase(new AddShield(2));
+    static SurpriseCase ph1 = new SurpriseCase(new AddPhilter(5));
+    static SurpriseCase ph2 = new SurpriseCase(new AddPhilter(3));
+    static SurpriseCase ph3 = new SurpriseCase(new AddPhilter(2));
+    static Bonus bonus = new Bonus();
+    static Malus m1 = new Malus();
+    static Malus m2 = new Malus();
+    static Joker50 joker1 = new Joker50();
+    static Joker25 joker2 = new Joker25();
     static Pioche maListe = new Pioche();
 
 
@@ -110,11 +104,9 @@ public class Main {
 //-----------------jeu-----------------------------------------
         showMenu();
         createCharacter();
-//        chooseEquipment(weaponList, spellList);
-//        attributeNumberCaseToOpponent();
-        fightEnemy(new Character(), dragonList, weaponList, 20);
+        chooseEquipment(weaponList, spellList);
         moveCase();
-        draw();
+
 
     }
 
@@ -212,7 +204,7 @@ public class Main {
         String test;
         if (classe.equals("1")) {
             for (int i = 0; i < weaponList.size(); i++) {
-                System.out.println(+i + " - " + weaponList.get(i).name);
+                System.out.println(+i + " - " + weaponList.get(i).getName());
             }
             do {
                 System.out.println("Choisis une arme");
@@ -230,7 +222,7 @@ public class Main {
         } else if (classe.equals("2")) {
 
             for (int j = 0; j < spellList.size(); j++) {
-                System.out.println(j + " - " + spellList.get(j).name);
+                System.out.println(j + " - " + spellList.get(j).getName());
             }
             do {
                 System.out.println("Choisis un sort");
@@ -309,7 +301,7 @@ public class Main {
 
         for (i = 0; i < addWeaponArrayList.size(); i++) {
             addWeaponArrayList.get(i);
-            System.out.println("Tu es tombé sur la case surprise 'arme', tu récupères une " + addWeaponArrayList.get(i));
+            System.out.println(addWeaponArrayList.get(i));
         }
     }
 
@@ -357,85 +349,85 @@ public class Main {
     }
 
     //---------------caisse bonus----------------------------
-    public static int bonusSurprise(int currentCase) {
-        System.out.println("Tu es tombé sur la case surprise 'bonus', tu avances de 5 cases");
-        bonus.setCaseNum(maListe.getListID().get(25));
-        currentCase = currentCase + bonus.getCases();
-        System.out.println("Tu es à la case : " + currentCase + "/64");
-        return currentCase;
-    }
+//    public static int bonusSurprise(int currentCase) {
+//        System.out.println("Tu es tombé sur la case surprise 'bonus', tu avances de 5 cases");
+//        bonus.setCaseNum(maListe.getListID().get(25));
+//        currentCase = currentCase + bonus.getCases();
+//        System.out.println("Tu es à la case : " + currentCase + "/64");
+//        return currentCase;
+//    }
 
     //--------------caisse malus-------------------
-    public static int malusSurprise(int currentCase) {
-        System.out.println("Tu es tombé sur la case surprise 'malus', tu recules de 5 cases");
-        m1.setCaseNum(maListe.getListID().get(26));
-        currentCase = currentCase - m1.getCases();
-        m2.setCaseNum(maListe.getListID().get(27));
-        currentCase = currentCase - m2.getCases();
-        System.out.println("Tu es à la case : " + currentCase + "/64");
-        return currentCase;
-    }
+//    public static int malusSurprise(int currentCase) {
+//        System.out.println("Tu es tombé sur la case surprise 'malus', tu recules de 5 cases");
+//        m1.setCaseNum(maListe.getListID().get(26));
+//        currentCase = currentCase - m1.getCases();
+//        m2.setCaseNum(maListe.getListID().get(27));
+//        currentCase = currentCase - m2.getCases();
+//        System.out.println("Tu es à la case : " + currentCase + "/64");
+//        return currentCase;
+//    }
 
     //-----------------2 caisses joker--------------
-    public int jokerSurprise25(int levelLifeCharacter) {
-        System.out.println("Tu es tombé sur la case joker \nTu gagnes 25 points de vie");
-        joker1.setCaseNum(maListe.getListID().get(28));
-        levelLifeCharacter = levelLifeCharacter + joker1.getLife();
-        System.out.println("Ton niveau de vie est de : " + levelLifeCharacter);
-        return levelLifeCharacter;
-    }
-
-    public int jokerSurprise50(int levelLifeCharacter) {
-        System.out.println("Tu es tombé sur la case joker \nTu gagnes 50 points de vie");
-        joker2.setCaseNum(maListe.getListID().get(29));
-        levelLifeCharacter = levelLifeCharacter + joker2.getLife();
-        System.out.println("Ton niveau de vie est de : " + levelLifeCharacter);
-        return levelLifeCharacter;
-    }
+//    public int jokerSurprise25(int levelLifeCharacter) {
+//        System.out.println("Tu es tombé sur la case joker \nTu gagnes 25 points de vie");
+//        joker501.setCaseNum(maListe.getListID().get(28));
+//        levelLifeCharacter = levelLifeCharacter + joker501.getLife();
+//        System.out.println("Ton niveau de vie est de : " + levelLifeCharacter);
+//        return levelLifeCharacter;
+//    }
+//
+//    public int jokerSurprise50(int levelLifeCharacter) {
+//        System.out.println("Tu es tombé sur la case joker \nTu gagnes 50 points de vie");
+//        joker502.setCaseNum(maListe.getListID().get(29));
+//        levelLifeCharacter = levelLifeCharacter + joker502.getLife();
+//        System.out.println("Ton niveau de vie est de : " + levelLifeCharacter);
+//        return levelLifeCharacter;
+//    }
 
     //------------------méthode pour combat-----------------
-    public static int fightEnemy(Character character, ArrayList<Dragon> dragonList, ArrayList<Weapon> weaponList, int cases) {
-        int StrengthCharac = character.getStrengthCharacter();
-        int lifeOpponent = dragonList.get(0).getLifeLevelOpponent();
-        int lifeCharac = character.getLife();
-
-        if (lifeOpponent > 0) {
-            int newStrengthCharacter = character.getStrengthCharacter() + weaponList.get(1).damagesDragons;
-            System.out.println("Ta force est de " + newStrengthCharacter + "\nChoisis un niveau d'attaque inférieur à " + newStrengthCharacter);
-            int input = sc.nextInt();
-            sc.nextLine();
-            StrengthCharac -= input;
-            lifeOpponent -= input;
-
-            if (lifeOpponent == 0) {
-                cases += 2;
-                System.out.println("Bravo, tu as gagné le combat! tu avances de 2 cases, tu es donc à la case " + cases);
-
-            } else if (lifeCharac > 0) {
-                //pour pouvoir récupérer le nouveau niveau de vie : créer une classe de type Integer
-                //notre class Integer se nomme "MonInt"
-                //MonInt permet de créer un objet qui garde la valeur de l'attribut à l'extérieur de la méthode ennemy
-                MonInt test = new MonInt(lifeCharac);
-                MonInt currentCase = new MonInt(cases);
-                enemy(dragonList, test, currentCase);
-                lifeCharac = test.getVal();//on accède à la valeur lifeCharacter
-            }
-        }
-        return (lifeCharac + StrengthCharac + lifeOpponent + cases);
-    }
-
-    public static void enemy(ArrayList<Dragon> dragonList, MonInt lifeCharacter, MonInt currentCase) {
-        if (dragonList.get(0).getLifeLevelOpponent() > 0 && lifeCharacter.getVal() > 0) {
-            System.out.println("Tu es attaqué par un ennemi \nSon attaque te coûte " + dragonList.get(0).attackLevel + " points de vie \nTu avais " + lifeCharacter.toString() + " points de vie");
-            lifeCharacter.setVal(lifeCharacter.getVal() - dragonList.get(0).attackLevel);//on modifie la valeur de lifeCharacter
-            if (lifeCharacter.getVal() > 0) {
-                currentCase.setVal(currentCase.getVal() - 2);
-                System.out.println("Il te reste " + lifeCharacter + " points de vie, tu es donc à la case : " + currentCase);
-            } else {
-                System.out.println("Tu es mort \nGAME OVER");
-            }
-        }
-    }
+//    public static int fightEnemy(Character character, ArrayList<Dragon> dragonList, ArrayList<Weapon> weaponList, int cases) {
+//        int StrengthCharac = character.getStrengthCharacter();
+//        int lifeOpponent = dragonList.get(0).getLifeLevelOpponent();
+//        int lifeCharac = character.getLife();
+//
+//        if (lifeOpponent > 0) {
+//            int newStrengthCharacter = character.getStrengthCharacter() + weaponList.get(1).damagesDragons;
+//            System.out.println("Ta force est de " + newStrengthCharacter + "\nChoisis un niveau d'attaque inférieur à " + newStrengthCharacter);
+//            int input = sc.nextInt();
+//            sc.nextLine();
+//            StrengthCharac -= input;
+//            lifeOpponent -= input;
+//
+//            if (lifeOpponent == 0) {
+//                cases += 2;
+//                System.out.println("Bravo, tu as gagné le combat! tu avances de 2 cases, tu es donc à la case " + cases);
+//
+//            } else if (lifeCharac > 0) {
+//                //pour pouvoir récupérer le nouveau niveau de vie : créer une classe de type Integer
+//                //notre class Integer se nomme "MonInt"
+//                //MonInt permet de créer un objet qui garde la valeur de l'attribut à l'extérieur de la méthode ennemy
+//                MonInt test = new MonInt(lifeCharac);
+//                MonInt currentCase = new MonInt(cases);
+//                enemy(dragonList, test, currentCase);
+//                lifeCharac = test.getVal();//on accède à la valeur lifeCharacter
+//            }
+//        }
+//        return (lifeCharac + StrengthCharac + lifeOpponent + cases);
+//    }
+//
+//    public static void enemy(ArrayList<Dragon> dragonList, MonInt lifeCharacter, MonInt currentCase) {
+//        if (dragonList.get(0).getLifeLevelOpponent() > 0 && lifeCharacter.getVal() > 0) {
+//            System.out.println("Tu es attaqué par un ennemi \nSon attaque te coûte " + dragonList.get(0).attackLevel + " points de vie \nTu avais " + lifeCharacter.toString() + " points de vie");
+//            lifeCharacter.setVal(lifeCharacter.getVal() - dragonList.get(0).attackLevel);//on modifie la valeur de lifeCharacter
+//            if (lifeCharacter.getVal() > 0) {
+//                currentCase.setVal(currentCase.getVal() - 2);
+//                System.out.println("Il te reste " + lifeCharacter + " points de vie, tu es donc à la case : " + currentCase);
+//            } else {
+//                System.out.println("Tu es mort \nGAME OVER");
+//            }
+//        }
+//    }
 
 }
 

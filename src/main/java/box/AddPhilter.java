@@ -1,9 +1,11 @@
 package box;
 
-public class addPhilter extends Surprise {
+import game.Board;
+
+public class AddPhilter implements Surprise {
     private int philterLevel;
 
-    public addPhilter(int philterLevel) {
+    public AddPhilter(int philterLevel) {
         this.philterLevel = philterLevel;
     }
 
@@ -13,6 +15,11 @@ public class addPhilter extends Surprise {
 
     public void setPhilterLevel(int philterLevel) {
         this.philterLevel = philterLevel;
+    }
+
+    @Override
+    public void faireAction(Board b, character.Character c) {
+
     }
 
     @Override
