@@ -1,22 +1,17 @@
 package opponent;
 
-public class Dragon extends Opponent {
+import box.Surprise;
+import character.Character;
+import game.Board;
+
+public class Dragon implements Surprise {
 // combattent guerriers et magiciens. Plus ils sont vieux et plus leur force d'attaque est élevée.
     private int age;
-    private int caseNum;
+    private int dragonLevel;
 
-    public int getCaseNum() {
-		return caseNum;
-	}
-
-	public void setCaseNum(int caseNum) {
-		this.caseNum = caseNum;
-	}
-
-	public Dragon(int dragonAge , int attackLevel) {
+	public Dragon(int dragonAge , int dragonLevel) {
         this.age = dragonAge;
-        this.attackLevel = attackLevel;
-
+        this.dragonLevel = dragonLevel;
     }
 
     public int getAge() {
@@ -28,8 +23,11 @@ public class Dragon extends Opponent {
     }
 
     public String toString() {
-        return "\n son âge ;" +age ;
+        return "Dragon âgé de "+ age + " son niveau d'attaque : " + dragonLevel;
+    }
 
+    @Override
+    public void faireAction(Board b, Character c) {
 
     }
 }

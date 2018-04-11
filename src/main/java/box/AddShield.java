@@ -25,6 +25,6 @@ public class AddShield implements Surprise {
 
     @Override
     public String toString() {
-        return "Niveau de protection du bouclier gagné : " + this.shieldLevel;
+        return ", tu récupères un bouclier avec une protection de " + this.shieldLevel;
     }
 }

@@ -24,6 +24,6 @@ public class AddPhilter implements Surprise {
 
     @Override
     public String toString() {
-        return "Niveau du philtre gagné : " + philterLevel;
+        return ", tu récupères un philtre de niveau " + philterLevel;
     }
 }
