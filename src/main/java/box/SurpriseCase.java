@@ -1,10 +1,12 @@
 package box;
 import equipment.Weapon;
+import opponent.Opponent;
 
 
 public class SurpriseCase {
     private Surprise surprise;
-    private int caseNum;
+    private Opponent opponent;
+     int caseNum;
 
     public int getCaseNum() {
 		return caseNum;
@@ -29,6 +31,6 @@ public class SurpriseCase {
 
     @Override
     public String toString() {
-        return "Tu es tombé sur la case surprise" + surprise ;
+        return "Tu es tombé sur une case surprise " + surprise ;
     }
 }

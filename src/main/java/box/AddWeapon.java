@@ -4,7 +4,8 @@ import character.Warrior;
 import equipment.Weapon;
 import game.Board;
 
-public class AddWeapon implements Surprise{
+
+public class AddWeapon implements Surprise {
     private String weaponName;
     private int weaponLevel;
 
@@ -12,7 +13,6 @@ public class AddWeapon implements Surprise{
         this.weaponName = weaponName;
         this.weaponLevel = weaponLevel;
     }
-
 
     public String getWeaponName() {
         return weaponName;
@@ -32,15 +32,23 @@ public class AddWeapon implements Surprise{
 
     @Override
     public String toString() {
-        return ", tu récupères une arme " +weaponName + " d'une force d'attaque de " + weaponLevel;
+        return ", tu récupères une arme " + weaponName + " d'une force d'attaque de " + weaponLevel;
     }
+
+    /**
+     * Cette methode sert à executer l'action qui consiste à demandeer à l'utilisateur s'il veux changer d'arme
+     *
+     * @param b : le plateu de jeu
+     * @param c : le personnage
+     */
 
     @Override
     public void faireAction(Board b, character.Character c) {
+
         //chercherArme
         Weapon w = null;//=.....
         //si warrior proposition changer arme
         //si oui
-        ((Warrior)c).setWeapon(w);
+        ((Warrior) c).setWeapon(w);
     }
 }

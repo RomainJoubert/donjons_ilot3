@@ -1,9 +1,8 @@
 package opponent;
 
 public class Opponent {
-    public int attackLevel;
-    public String name;
-    public int lifeLevelOpponent = 20;
+    private String name;
+    public int lifeLevelOpponent;
 
     public int getLifeLevelOpponent() {
         return lifeLevelOpponent;
@@ -13,16 +12,8 @@ public class Opponent {
         this.lifeLevelOpponent = lifeLevelOpponent;
     }
 
-    public int getAttackLevel() {
-        return attackLevel;
-    }
-
-    public void setAttackLevel(int attackLevel) {
-        this.attackLevel = attackLevel;
-    }
-
     public String toString() {
-        return "\n son niveau d'attaque ;" + attackLevel;
+        return "\n son nom " + name;
 
 
     }
