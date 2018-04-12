@@ -16,7 +16,6 @@ public class Warrior extends Character {
         this.weapon = weapon;
     }
 
-
     public AddShield getShield() {
         return shield;
     }
