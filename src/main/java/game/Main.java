@@ -43,7 +43,6 @@ public class Main {
 
     //--------------méthode qui affiche le menu-------------------
     public static void showMenu() {
-        // String chType;
         int test;
         String input;
 

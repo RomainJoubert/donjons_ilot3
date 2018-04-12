@@ -2,6 +2,7 @@ package opponent;
 
 import box.Surprise;
 import character.Character;
+import character.Warrior;
 import game.Board;
 
 public class Dragon implements Surprise {
@@ -27,7 +28,7 @@ public class Dragon implements Surprise {
     }
 
     @Override
-    public void faireAction(Board b, Character c) {
+    public void faireAction(Board b, character.Character c) {
 
     }
 }

@@ -45,6 +45,7 @@ public class AddWeapon implements Surprise {
     @Override
     public void faireAction(Board b, character.Character c) {
 
+
         //chercherArme
         Weapon w = null;//=.....
         //si warrior proposition changer arme
