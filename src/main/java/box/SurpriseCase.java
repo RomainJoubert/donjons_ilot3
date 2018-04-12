@@ -1,4 +1,5 @@
 package box;
+
 import equipment.Weapon;
 import opponent.Opponent;
 
@@ -6,17 +7,17 @@ import opponent.Opponent;
 public class SurpriseCase {
     private Surprise surprise;
     private Opponent opponent;
-     int caseNum;
+    int caseNum;
 
     public int getCaseNum() {
-		return caseNum;
-	}
+        return caseNum;
+    }
 
-	public void setCaseNum(int caseNum) {
-		this.caseNum = caseNum;
-	}
+    public void setCaseNum(int caseNum) {
+        this.caseNum = caseNum;
+    }
 
-	public SurpriseCase(Surprise surprise) {
+    public SurpriseCase(Surprise surprise) {
         this.surprise = surprise;
     }
 
@@ -31,6 +32,6 @@ public class SurpriseCase {
 
     @Override
     public String toString() {
-        return "Tu es tombé sur une case surprise " + surprise ;
+        return "Tu es tombé sur une case surprise " + surprise;
     }
 }
