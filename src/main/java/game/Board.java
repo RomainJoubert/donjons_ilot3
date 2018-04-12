@@ -1,29 +1,25 @@
 package game;
 
-public class Board {
+import java.util.ArrayList;
+import java.util.Collections;
 
-    private String CaseType;
-    private int cases;
+public class Board extends Case{
 
-    public Board(int cases) {
-        this.cases = cases;
-    }
+	private ArrayList<Case> cases = new ArrayList<Case>();
+	
 
-    public int getCases() {
-        return cases;
-    }
+	public ArrayList<Case> getCases() {
+		return cases;
+	}
 
-    public void setCases(int cases) {
-        this.cases = cases;
-    }
+	public void setCases(ArrayList<Case> cases) {
+		this.cases = cases;
+	}
 
-    public void setCaseType(String caseType) {
-        CaseType = caseType;
-    }
-
-
-    public String getCaseType() {
-        return CaseType;
-    }
+	public Board() {
+		for (int i=1; i<= 64; i++) {
+			cases.add(new Case()); 
+		}
+	}
 
 }

@@ -2,7 +2,7 @@ package box;
 import equipment.Weapon;
 
 
-public class SurpriseCase {
+public class SurpriseCase  {
     private Surprise surprise;
     private int caseNum;
 

@@ -1,6 +1,8 @@
 package opponent;
 
-public class Opponent {
+import game.event;
+
+public class Opponent extends event {
 
     public int attackLevel;
     public String name;

@@ -68,6 +68,8 @@ public class Main {
     static Joker joker1 = new Joker(25);
     static Joker joker2 = new Joker(50);
     static Pioche maListe = new Pioche();
+    static Case test = new Case();
+    static Board board = new Board();
     public static void main(String[] args) {
 
         ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
@@ -83,6 +85,7 @@ public class Main {
 
         ArrayList<Dragon> dragonList = new ArrayList<Dragon>();
         d1.setCaseNum(maListe.getListID().get(1));
+        board.getCases().get(maListe.getListID().get(1)).setEv(d1);
         dragonList.add(d1);
         d2.setCaseNum(maListe.getListID().get(2));
         dragonList.add(d2);
@@ -97,6 +100,7 @@ public class Main {
 
         ArrayList<Wizzard> wizzardList = new ArrayList<Wizzard>();
         wz1.setCaseNum(maListe.getListID().get(7));
+        board.getCases().get(maListe.getListID().get(7)).setEv(wz1);
         wizzardList.add(wz1);
         wz2.setCaseNum(maListe.getListID().get(8));
         wizzardList.add(wz2);
@@ -104,8 +108,23 @@ public class Main {
         wizzardList.add(wz3);
         wz4.setCaseNum(maListe.getListID().get(10));
         wizzardList.add(wz4);
+        
+        ArrayList<Succubi> succubiList = new ArrayList<Succubi>();
+        suc1.setCaseNum(maListe.getListID().get(11));
+        board.getCases().get(maListe.getListID().get(11)).setEv(suc1);
+        succubiList.add(suc1);
+        suc2.setCaseNum(maListe.getListID().get(12));
+        board.getCases().get(maListe.getListID().get(12)).setEv(suc2);
+        succubiList.add(suc2);
+        suc3.setCaseNum(maListe.getListID().get(13));
+        board.getCases().get(maListe.getListID().get(13)).setEv(suc3);
+        succubiList.add(suc3);
+        suc4.setCaseNum(maListe.getListID().get(14));
+        succubiList.add(suc4);
 
-
+        Board jeu = new Board();
+        jeu.getCases();
+        
 
 //-----------------jeu-----------------------------------------
         showMenu();
@@ -117,52 +136,9 @@ public class Main {
 
     }
 
-    //--------------méthode qui attribut une case à un ennemi-------------------
-    public static void attributeNumberCaseToOpponent() {
-        int cases[] = new int[65]; //tableau de cases, de 0 à 65.
-        int currentCase = 0;
-        Succubi opponentSelected = null;
-
-        ArrayList<Succubi> succubiList = new ArrayList<Succubi>();
-        suc1.setCaseNum(maListe.getListID().get(11));
-        succubiList.add(suc1);
-        suc2.setCaseNum(maListe.getListID().get(12));
-        succubiList.add(suc2);
-        suc3.setCaseNum(maListe.getListID().get(13));
-        succubiList.add(suc3);
-        suc4.setCaseNum(maListe.getListID().get(14));
-        succubiList.add(suc4);
-
-        for (int i = 1; i < cases.length; i++) {
-            Random rn = new Random(i);
-            currentCase = rn.nextInt(i) + 1;
-            System.out.println(currentCase);
-
-        }
-
-        for (int j = 1; j < succubiList.size() + 1; j++) {
-            Random rn = new Random(j);
-            int number = rn.nextInt(j) + 1;
-            System.out.println("Nombre tiré " + number);
-            opponentSelected = succubiList.get(number);
-            System.out.println(opponentSelected.name + "\nNiveau d'attack : " + opponentSelected.attackLevel);
-        }
-
-        /*HashMap board = new HashMap();
-        board.put(currentCase, opponentSelected.name);
-
-        Iterator<Entry <Integer,String >> itr = board.iterator();
-
-        while (itr.hasNext()) {
-            Object element = itr.next();
-            System.out.print(element.getKey() + element.getValue());
-        }*/
-    }
-
     //--------------méthode qui affiche le menu-------------------
     public static void showMenu() {
         // String chType;
-        int test;
         String input;
 
 
@@ -170,7 +146,7 @@ public class Main {
 			System.out.println("Choisis un personnage \n1-Guerrier \n2-Magicien");
 			input = sc.nextLine();
 			try {
-				test = Integer.parseInt(input);
+				int test = Integer.parseInt(input);
 			}
 			catch(NumberFormatException e)
 			{
@@ -201,6 +177,10 @@ public class Main {
         X.setName(sc.nextLine());
         System.out.println("Ajoute une image");
         System.out.println(d1.getCaseNum());
+        System.out.println(suc1.getCaseNum());
+        System.out.println(wz1.getCaseNum());
+        System.out.println(suc2.getCaseNum());
+        System.out.println(suc3.getCaseNum());
         X.setPicture(sc.nextLine());
         System.out.println("Ton Guerrier porte le nom de " + X.getName() + " et a l'image : " + X.getPicture());
     }
@@ -275,9 +255,25 @@ public class Main {
                 Dice dice1 = new Dice();
                 dice1.randomNumber();
                 System.out.println("Tu as fait : " + dice1.getN());
-                cases = cases + dice1.getN();
-                System.out.println("Tu es à la case : " + cases + "/64");
-
+                X.setCaseNum(X.getCaseNum() + dice1.getN());
+                System.out.println("Tu es à la case : " + X.getCaseNum() + "/64");
+                Case playerCase = board.getCases().get(X.getCaseNum());
+                if (playerCase.getEv() != null) {
+                		
+                	System.out.println("Y'a quelqu'un");
+                	if (playerCase.getEv() instanceof Opponent) {
+                		System.out.println("C'est un ennemi !");
+                		if (playerCase.getEv() instanceof Dragon) {
+                			System.out.println("C'est un dragon !");
+                		} else if (playerCase.getEv() instanceof Succubi) {
+                			System.out.println("C'est une succube !");
+                		} else if (playerCase.getEv() instanceof Wizzard) {
+                			System.out.println("C'est un wizard !");
+                		}
+                	}
+                } else {
+                	System.out.println("y'a personne");
+                }
             } else if (input2.equals("2")) {
                 exit = true;
                 System.out.println("Tu es sorti(e) du game !");

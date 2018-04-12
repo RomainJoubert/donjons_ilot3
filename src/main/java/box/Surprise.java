@@ -1,5 +1,7 @@
 package box;
 
-public abstract class Surprise {
+import game.event;
+
+public abstract class Surprise extends event {
 
 }
