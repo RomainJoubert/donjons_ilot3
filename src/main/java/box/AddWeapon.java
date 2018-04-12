@@ -35,12 +35,6 @@ public class AddWeapon implements Surprise{
         return ", tu récupères une arme " +weaponName + " d'une force d'attaque de " + weaponLevel;
     }
 
-    /**
-     * Cette methode sert à executer l'action qui consiste à demandeer à l'utilisateur s'il veux changer d'arme
-     * @param b : le plateu de jeu
-     * @param c : le personnage
-     *
-     */
     @Override
     public void faireAction(Board b, character.Character c) {
         //chercherArme
