@@ -4,7 +4,6 @@ import character.Warrior;
 import equipment.Weapon;
 import game.Board;
 
-import java.util.ArrayList;
 
 public class AddWeapon implements Surprise {
     private String weaponName;
@@ -42,8 +41,10 @@ public class AddWeapon implements Surprise {
      * @param b : le plateu de jeu
      * @param c : le personnage
      */
+
     @Override
     public void faireAction(Board b, character.Character c) {
+
 
         //chercherArme
         Weapon w = null;//=.....

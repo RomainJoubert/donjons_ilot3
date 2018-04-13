@@ -1,7 +1,7 @@
 package equipment;
 
 
-public class Weapon {
+public class Weapon extends Equipment {
     public String name;
 
     public String getName() {
