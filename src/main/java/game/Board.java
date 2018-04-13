@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
     //---------------cases surprises----------------
-public class Board {
+public class Board extends Main {
     private static Scanner sc = new Scanner(System.in);
     private int cases1;
     private String input;
@@ -21,11 +21,12 @@ public class Board {
     private Pioche maListe = new Pioche();
     private Warrior X = new Warrior();
     private Magician Y = new Magician();
-    private static Board board = new Board(63);
+
 
     //----------------------- création des cases surprises -----------------------------------
 
-    private SurpriseCase w4 = new SurpriseCase(new AddWeapon("bombe", 100));
+ 
+	private SurpriseCase w4 = new SurpriseCase(new AddWeapon("bombe", 100));
     private SurpriseCase w5 = new SurpriseCase(new AddWeapon("hache", 25));
     private SurpriseCase sp1 = new SurpriseCase(new AddSpell("Boule de feu", 50));
     private SurpriseCase sp2 = new SurpriseCase(new AddSpell("Lévitation", 25));
@@ -80,7 +81,7 @@ public class Board {
 	}
 
 	public Board(int j) {
-		for (int i=1; i<= 64; i++) {
+		for (int i=0; i<= 64; i++) {
 			cases.add(new Case());
 		}
 	}
@@ -95,91 +96,91 @@ public class Board {
         int i;
         ArrayList<SurpriseCase> surpriseList = new ArrayList<SurpriseCase>();
         w4.setCaseNum(maListe.getListID().get(15));
-        board.getCases().get(maListe.getListID().get(15)).setEv(w4);
+        getCases().get(maListe.getListID().get(15)).setEv(w4);
         surpriseList.add(w4);
         w5.setCaseNum(maListe.getListID().get(16));
-        board.getCases().get(maListe.getListID().get(16)).setEv(w5);
+        getCases().get(maListe.getListID().get(16)).setEv(w5);
         surpriseList.add(w5);
         sp1.setCaseNum(maListe.getListID().get(23));
-        board.getCases().get(maListe.getListID().get(23)).setEv(sp1);
+        getCases().get(maListe.getListID().get(23)).setEv(sp1);
         surpriseList.add(sp1);
         sp2.setCaseNum(maListe.getListID().get(24));
-        board.getCases().get(maListe.getListID().get(24)).setEv(sp2);
+        getCases().get(maListe.getListID().get(24)).setEv(sp2);
         surpriseList.add(sp2);
         sh1.setCaseNum(maListe.getListID().get(17));
-        board.getCases().get(maListe.getListID().get(17)).setEv(sh1);
+        getCases().get(maListe.getListID().get(17)).setEv(sh1);
         surpriseList.add(sh1);
         sh2.setCaseNum(maListe.getListID().get(18));
-        board.getCases().get(maListe.getListID().get(18)).setEv(sh2);
+        getCases().get(maListe.getListID().get(18)).setEv(sh2);
         surpriseList.add(sh2);
         sh3.setCaseNum(maListe.getListID().get(19));
-        board.getCases().get(maListe.getListID().get(19)).setEv(sh3);
+        getCases().get(maListe.getListID().get(19)).setEv(sh3);
         surpriseList.add(sh3);
         ph1.setCaseNum(maListe.getListID().get(20));
-        board.getCases().get(maListe.getListID().get(20)).setEv(ph1);
+        getCases().get(maListe.getListID().get(20)).setEv(ph1);
         surpriseList.add(ph1);
         ph2.setCaseNum(maListe.getListID().get(21));
-        board.getCases().get(maListe.getListID().get(21)).setEv(ph2);
+        getCases().get(maListe.getListID().get(21)).setEv(ph2);
         surpriseList.add(ph2);
         ph3.setCaseNum(maListe.getListID().get(22));
-        board.getCases().get(maListe.getListID().get(22)).setEv(ph3);
+        getCases().get(maListe.getListID().get(22)).setEv(ph3);
         surpriseList.add(ph3);
         b1.setCaseNum(maListe.getListID().get(25));
-        board.getCases().get(maListe.getListID().get(25)).setEv(b1);
+        getCases().get(maListe.getListID().get(25)).setEv(b1);
         surpriseList.add(b1);
         m1.setCaseNum(maListe.getListID().get(26));
-        board.getCases().get(maListe.getListID().get(26)).setEv(m1);
+        getCases().get(maListe.getListID().get(26)).setEv(m1);
         surpriseList.add(m1);
         m2.setCaseNum(maListe.getListID().get(27));
-        board.getCases().get(maListe.getListID().get(26)).setEv(m2);
+        getCases().get(maListe.getListID().get(27)).setEv(m2);
         surpriseList.add(m2);
         j1.setCaseNum(maListe.getListID().get(28));
-        board.getCases().get(maListe.getListID().get(28)).setEv(j1);
+        getCases().get(maListe.getListID().get(28)).setEv(j1);
         surpriseList.add(j1);
         j2.setCaseNum(maListe.getListID().get(29));
-        board.getCases().get(maListe.getListID().get(29)).setEv(j2);
+        getCases().get(maListe.getListID().get(29)).setEv(j2);
         surpriseList.add(j2);
         suc1.setCaseNum(maListe.getListID().get(1));
-        board.getCases().get(maListe.getListID().get(1)).setEv(suc1);
+        getCases().get(maListe.getListID().get(1)).setEv(suc1);
         surpriseList.add(suc1);
         suc2.setCaseNum(maListe.getListID().get(2));
-        board.getCases().get(maListe.getListID().get(2)).setEv(suc2);
+        getCases().get(maListe.getListID().get(2)).setEv(suc2);
         surpriseList.add(suc2);
         suc3.setCaseNum(maListe.getListID().get(3));
-        board.getCases().get(maListe.getListID().get(3)).setEv(suc3);
+        getCases().get(maListe.getListID().get(3)).setEv(suc3);
         surpriseList.add(suc3);
         suc4.setCaseNum(maListe.getListID().get(4));
-        board.getCases().get(maListe.getListID().get(4)).setEv(suc4);
+        getCases().get(maListe.getListID().get(4)).setEv(suc4);
         surpriseList.add(suc4);
         drag1.setCaseNum(maListe.getListID().get(5));
-        board.getCases().get(maListe.getListID().get(5)).setEv(drag1);
+        getCases().get(maListe.getListID().get(5)).setEv(drag1);
         surpriseList.add(drag1);
         drag2.setCaseNum(maListe.getListID().get(6));
-        board.getCases().get(maListe.getListID().get(6)).setEv(drag2);
+        getCases().get(maListe.getListID().get(6)).setEv(drag2);
         surpriseList.add(drag2);
         drag3.setCaseNum(maListe.getListID().get(7));
-        board.getCases().get(maListe.getListID().get(7)).setEv(drag3);
+        getCases().get(maListe.getListID().get(7)).setEv(drag3);
         surpriseList.add(drag1);
         drag4.setCaseNum(maListe.getListID().get(8));
-        board.getCases().get(maListe.getListID().get(8)).setEv(drag4);
+        getCases().get(maListe.getListID().get(8)).setEv(drag4);
         surpriseList.add(drag4);
         drag5.setCaseNum(maListe.getListID().get(9));
-        board.getCases().get(maListe.getListID().get(9)).setEv(drag5);
+        getCases().get(maListe.getListID().get(9)).setEv(drag5);
         surpriseList.add(drag5);
         drag6.setCaseNum(maListe.getListID().get(10));
-        board.getCases().get(maListe.getListID().get(10)).setEv(drag6);
+        getCases().get(maListe.getListID().get(10)).setEv(drag6);
         surpriseList.add(drag6);
         wizz1.setCaseNum(maListe.getListID().get(11));
-        board.getCases().get(maListe.getListID().get(11)).setEv(wizz1);
+        getCases().get(maListe.getListID().get(11)).setEv(wizz1);
         surpriseList.add(wizz1);
         wizz2.setCaseNum(maListe.getListID().get(12));
-        board.getCases().get(maListe.getListID().get(12)).setEv(wizz2);
+        getCases().get(maListe.getListID().get(12)).setEv(wizz2);
         surpriseList.add(wizz2);
         wizz3.setCaseNum(maListe.getListID().get(13));
-        board.getCases().get(maListe.getListID().get(13)).setEv(wizz3);
+        getCases().get(maListe.getListID().get(13)).setEv(wizz3);
         surpriseList.add(wizz3);
         wizz4.setCaseNum(maListe.getListID().get(14));
-        board.getCases().get(maListe.getListID().get(14)).setEv(wizz4);
+        getCases().get(maListe.getListID().get(14)).setEv(wizz4);
         surpriseList.add(wizz4);
 
         for (i = 0; i < surpriseList.size(); i++) {
