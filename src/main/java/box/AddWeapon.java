@@ -4,10 +4,10 @@ import character.Warrior;
 import equipment.Weapon;
 import game.Board;
 
-
 public class AddWeapon implements Surprise {
     private String weaponName;
     private int weaponLevel;
+    Weapon w = new Weapon();
 
     public AddWeapon(String weaponName, int weaponLevel) {
         this.weaponName = weaponName;
@@ -35,17 +35,9 @@ public class AddWeapon implements Surprise {
         return ", tu récupères une arme " + weaponName + " d'une force d'attaque de " + weaponLevel;
     }
 
-
     @Override
     public void faireAction(Board b, character.Character perso) {
-        b.w4.getSurprise().getClass();
-        System.out.println( "personnage : " + perso);
-
-
-        //chercherArme
-        Weapon w = null;//=.....
-        //si warrior proposition changer arme
-        //si oui
-       // ((Warrior) perso).setWeapon(w4);
+//        System.out.println( "personnage : " + perso);
+//        ((Warrior) perso).setWeapon(w);
     }
 }

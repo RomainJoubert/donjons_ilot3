@@ -1,11 +1,9 @@
 package opponent;
 
 import box.Surprise;
-import character.Character;
-import character.Warrior;
 import game.Board;
 
-public class Dragon implements Surprise {
+public class Dragon extends Opponent implements Surprise  {
 // combattent guerriers et magiciens. Plus ils sont vieux et plus leur force d'attaque est élevée.
     private int age;
     private int dragonLevel;

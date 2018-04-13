@@ -18,7 +18,7 @@ public class Club extends Weapon {
 
     @Override
     public String toString() {
-        return "Massue de force d'attaque de " + clubLevel ;
+        return super.toString() + " de force d'attaque de " + clubLevel ;
     }
 }
 

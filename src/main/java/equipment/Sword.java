@@ -18,6 +18,6 @@ public class Sword extends Weapon {
 
     @Override
     public String toString() {
-        return "Epée de force d'attaque de " + swordLevel;
+        return super.toString() + " de force d'attaque de " + swordLevel;
     }
 }

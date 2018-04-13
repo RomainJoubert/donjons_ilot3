@@ -3,7 +3,6 @@ package equipment;
 public class FireWall extends Spell {
     private int fireLevel;
 
-
     public FireWall(String fireName, int fireLevel) {
         this.name = fireName;
         this.fireLevel = fireLevel;
@@ -19,7 +18,6 @@ public class FireWall extends Spell {
 
     @Override
     public String toString() {
-        return
-                "Mur de feu de force d'attaque de " + fireLevel;
+        return super.toString() + " de force d'attaque de " + fireLevel;
     }
 }

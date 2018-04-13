@@ -18,6 +18,6 @@ public class Invisibility extends Spell {
 
     @Override
     public String toString() {
-        return   "Invisibilité de force d'attaque de " + invisibilityLevel;
+        return super.toString() + " de force d'attaque de " + invisibilityLevel;
     }
 }

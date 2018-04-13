@@ -13,8 +13,6 @@ public class Spell extends Equipment {
     }
 
     public String toString() {
-        return "\n son Sort: " + this.name ;
-
-
+        return name ;
     }
 }

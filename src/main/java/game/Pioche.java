@@ -2,10 +2,9 @@ package game;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 public class Pioche {
-	
+	private Cases cases;
 	private ArrayList<Integer> listID = new ArrayList<Integer>(); 
 	private int taille_tableau = 64; 
 	
@@ -23,6 +22,11 @@ public class Pioche {
 	public void setListID(ArrayList<Integer> listID) {
 		this.listID = listID;
 	}
+	
+	public void test(Cases cases) {
+		this.cases = cases;
+	}
+	
 	
 }
 

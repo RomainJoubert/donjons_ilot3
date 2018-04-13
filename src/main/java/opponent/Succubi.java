@@ -3,16 +3,14 @@ package opponent;
 import box.Surprise;
 import game.Board;
 
-public class Succubi implements Surprise {
+public class Succubi extends Opponent implements Surprise {
     // combattent les guerriers - divise la force des armes des guerriers par deux
     private int succubiLevel;
     private String name;
 
-
     public Succubi(String name, int succubiLevel) {
         this.succubiLevel = succubiLevel;
         this.name = name;
-
     }
 
     public int getSuccubiLevel() {
@@ -25,8 +23,6 @@ public class Succubi implements Surprise {
 
     public String toString() {
         return "Succube, son nom est : "+ name +" son niveau d'attaque : " + succubiLevel;
-
-
     }
 
     @Override
