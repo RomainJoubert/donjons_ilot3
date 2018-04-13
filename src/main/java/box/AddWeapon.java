@@ -4,8 +4,6 @@ import character.Warrior;
 import equipment.Weapon;
 import game.Board;
 
-import java.util.ArrayList;
-
 public class AddWeapon implements Surprise {
     private String weaponName;
     private int weaponLevel;
@@ -38,9 +36,11 @@ public class AddWeapon implements Surprise {
 
     @Override
     public void faireAction(Board b, character.Character c) {
-    System.out.println("test");
-//        Weapon w = null;
-//
-//        ((Warrior) c).setWeapon(w);
+        //chercherArme
+        Weapon w = null;//=.....
+        //si warrior proposition changer arme
+        //si oui
+        ((Warrior) c).setWeapon(w);
+
     }
 }

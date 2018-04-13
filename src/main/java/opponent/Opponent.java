@@ -1,9 +1,13 @@
 package opponent;
 
-public class Opponent {
-    private String name;
-    public int lifeLevelOpponent;
+import game.event;
 
+public class Opponent extends event {
+
+    public int attackLevel;
+    public String name;
+    public int lifeLevelOpponent;
+    
     public int getLifeLevelOpponent() {
         return lifeLevelOpponent;
     }

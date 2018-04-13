@@ -1,9 +1,11 @@
 package box;
 
+import equipment.Weapon;
+import game.event;
+
 import opponent.Opponent;
 
-
-public class SurpriseCase {
+public class SurpriseCase extends event {
     private Surprise surprise;
     private Opponent opponent;
     int caseNum;

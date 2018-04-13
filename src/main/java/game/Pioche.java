@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Random;
 
 public class Pioche {
-	
+	private Case cases;
 	private ArrayList<Integer> listID = new ArrayList<Integer>(); 
 	private int taille_tableau = 64; 
 	
@@ -23,6 +23,11 @@ public class Pioche {
 	public void setListID(ArrayList<Integer> listID) {
 		this.listID = listID;
 	}
+	
+	public void test(Case cases) {
+		this.cases = cases;
+	}
+	
 	
 }
 

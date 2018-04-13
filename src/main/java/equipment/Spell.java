@@ -1,7 +1,7 @@
 package equipment;
 
 
-public class Spell {
+public class Spell extends Equipment {
     public String name;
 
     public String getName() {
