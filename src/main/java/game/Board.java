@@ -287,9 +287,16 @@ public class Board {
             if (input2.equals("1")) {
                 Dice dice1 = new Dice();
                 dice1.randomNumber();
-                System.out.println("Tu as fait : " + dice1.getN());
-                cases1 = cases1 + dice1.getN();
-                System.out.println("Tu es à la case : " + cases + "/64");
+                if (X instanceof Warrior) {
+                	System.out.println("Tu as fait : " + dice1.getN());
+                	X.setCaseNum(X.getCaseNum() + dice1.getN());
+                	System.out.println("Tu es à la case : " + X.getCaseNum() + "/64");
+                } else {
+                	System.out.println("Tu as fait : " + dice1.getN());
+                	Y.setCaseNum(Y.getCaseNum() + dice1.getN());
+                	System.out.println("Tu es à la case : " + Y.getCaseNum() + "/64");
+                }
+                
             } else if (input2.equals("2")) {
                 exit = true;
                 System.out.println("Tu es sorti(e) du game !");
