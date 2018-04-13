@@ -9,7 +9,7 @@ public class Pioche {
 	private int taille_tableau = 64; 
 	
 	public Pioche() {
-		for (int i=1; i<= taille_tableau; i++) {
+		for (int i=1; i< taille_tableau; i++) {
 			listID.add(i); 
 		}
 		Collections.shuffle(listID);
