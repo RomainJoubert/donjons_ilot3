@@ -14,15 +14,16 @@ import java.util.Scanner;
 
 public class Board {
     private static Scanner sc = new Scanner(System.in);
-    private int cases;
+    private int cases =0;
     private String input;
     private String test;
     private Pioche maListe = new Pioche();
-    private Warrior X = new Warrior();
-    private Magician Y = new Magician();
-
+    public character.Character perso;
+   /* = new Warrior();
+    private character.Character Y = new Magician();
+*/
     //----------------------- création des cases surprises -----------------------------------
-    private SurpriseCase w4 = new SurpriseCase(new AddWeapon("bombe", 100));
+    public SurpriseCase w4 = new SurpriseCase(new AddWeapon("bombe", 100));
     private SurpriseCase w5 = new SurpriseCase(new AddWeapon("hache", 25));
     private SurpriseCase sp1 = new SurpriseCase(new AddSpell("Boule de feu", 50));
     private SurpriseCase sp2 = new SurpriseCase(new AddSpell("Lévitation", 25));
@@ -37,6 +38,7 @@ public class Board {
     private SurpriseCase m2 = new SurpriseCase(new Malus());
     private SurpriseCase j1 = new SurpriseCase(new Joker25());
     private SurpriseCase j2 = new SurpriseCase(new Joker50());
+
 
     //------------------------ création des ennemis -----------------------------
     public SurpriseCase drag1 = new SurpriseCase(new Dragon(80, 80));
@@ -65,7 +67,7 @@ public class Board {
 
     //---------------- liste des méthodes -----------------
 
-    public Board(int cases) {
+    public Board() {
         this.cases = cases;
     }
 
@@ -165,25 +167,30 @@ public class Board {
         } while (!(input.equals("1") || input.equals("2")));
         if (input.equals("1")) {
             createWarrior();
+
         } else if (input.equals("2")) {
             createMagician();
+
         }
+
     }
 
     public void createWarrior() {
+        perso = new Warrior();
         System.out.println("Entre le nom de ton guerrier");
-        X.setName(sc.nextLine());
+        perso.setName(sc.nextLine());
         System.out.println("Ajoute une image");
-        X.setPicture(sc.nextLine());
-        System.out.println("Ton Guerrier porte le nom de " + X.getName() + " et a l'image : " + X.getPicture());
+        perso.setPicture(sc.nextLine());
+        System.out.println("Ton Guerrier porte le nom de " + perso.getName() + " et a l'image : " + perso.getPicture());
     }
 
     public void createMagician() {
+        perso = new Magician();
         System.out.println("Entre le nom de ton magicien");
-        Y.setName(sc.nextLine());
+        perso.setName(sc.nextLine());
         System.out.println("Ajoute une image");
-        Y.setPicture(sc.nextLine());
-        System.out.println("Ton Magicien porte le nom de " + Y.getName() + " et a l'image : " + Y.getPicture());
+        perso.setPicture(sc.nextLine());
+        System.out.println("Ton Magicien porte le nom de " + perso.getName() + " et a l'image : " + perso.getPicture());
     }
 
     public void chooseEquipment() {
@@ -205,11 +212,11 @@ public class Board {
                 System.out.println("Choisis une arme");
                 test = sc.nextLine();
                 if (test.equals("0")) {
-                    X.setWeapon(w1);
+                    ((Warrior)perso).setWeapon(w1);
                 } else if (test.equals("1")) {
-                    X.setWeapon(w2);
+                    ((Warrior)perso).setWeapon(w2);
                 } else if (test.equals("2")) {
-                    X.setWeapon(w3);
+                    ((Warrior)perso).setWeapon(w3);
                 }
             } while (!(test.equals("0") || test.equals("1") || test.equals("2")));
 
@@ -221,11 +228,11 @@ public class Board {
                 System.out.println("Choisis un sort");
                 test = sc.nextLine();
                 if (test.equals("0")) {
-                    Y.setSpell(s1);
+                    ((Magician)perso).setSpell(s1);
                 } else if (test.equals("1")) {
-                    Y.setSpell(s2);
+                    ((Magician)perso).setSpell(s2);
                 } else if (test.equals("2")) {
-                    Y.setSpell(s3);
+                    ((Magician)perso).setSpell(s3);
                 }
             } while (!(test.equals("0") || test.equals("1") || test.equals("2")));
         }
@@ -253,6 +260,9 @@ public class Board {
                 System.out.println("Tu as fait : " + dice1.getN());
                 cases = cases + dice1.getN();
                 System.out.println("Tu es à la case : " + cases + "/64");
+                //  get evenement (w) de la case numero cases
+                //  w.faireAction(this, perso );
+
             } else if (input2.equals("2")) {
                 exit = true;
                 System.out.println("Tu es sorti(e) du game !");

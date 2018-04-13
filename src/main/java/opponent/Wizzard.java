@@ -25,7 +25,7 @@ public class Wizzard implements Surprise {
 
     @Override
     public void faireAction(Board b, character.Character c) {
-        wizzardLevel
+
 
 
     }

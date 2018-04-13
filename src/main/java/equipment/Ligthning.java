@@ -18,6 +18,6 @@ public class Ligthning extends Spell{
 
     @Override
     public String toString() {
-        return "lightLevel = " + lightLevel;
+        return "Eclair de force d'attaque " + lightLevel;
     }
 }

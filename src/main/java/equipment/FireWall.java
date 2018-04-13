@@ -20,6 +20,6 @@ public class FireWall extends Spell {
     @Override
     public String toString() {
         return
-                "fireLevel=" + fireLevel;
+                "Mur de feu de force d'attaque de " + fireLevel;
     }
 }

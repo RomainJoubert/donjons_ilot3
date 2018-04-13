@@ -52,7 +52,7 @@ public abstract class Character {
     }
 
     public String toString() {
-        return "détails du personnage" + "\nnom : " + name + "\nimage : " + picture + "\nvie : " + life + "\nForce d'attaque : " + strengthCharacter;
+        return "Détails du personnage" + "\nNom : " + name + "\nImage : " + picture + "\nVie : " + life + "\nForce d'attaque : " + strengthCharacter;
     }
 
 

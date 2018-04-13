@@ -25,8 +25,8 @@ public class Warrior extends Character {
     }
 
     public String toString() {
-        return "Arme : " + weapon +
-                "\n Bouclier : " + shield;
+        return super.toString() + "\nArme : " + weapon +
+                "\nBouclier : " + shield;
 
     }
 }
