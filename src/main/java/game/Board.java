@@ -20,10 +20,11 @@ public class Board {
     private Pioche maListe = new Pioche();
     private Warrior X = new Warrior();
     private Magician Y = new Magician();
-    public Weapon weapon;
+    public AddWeapon addWeapon;
+
 
     //----------------------- création des cases surprises -----------------------------------
-    private SurpriseCase w4 = new SurpriseCase(new AddWeapon("bombe", 100));
+    public SurpriseCase w4 = new SurpriseCase(new AddWeapon("bombe", 100));
     private SurpriseCase w5 = new SurpriseCase(new AddWeapon("hache", 25));
     private SurpriseCase sp1 = new SurpriseCase(new AddSpell("Boule de feu", 50));
     private SurpriseCase sp2 = new SurpriseCase(new AddSpell("Lévitation", 25));
@@ -40,7 +41,7 @@ public class Board {
     private SurpriseCase j2 = new SurpriseCase(new Joker50());
 
     //------------------------ création des ennemis -----------------------------
-    public SurpriseCase drag1 = new SurpriseCase(new Dragon(80, 80));
+    private SurpriseCase drag1 = new SurpriseCase(new Dragon(80, 80));
     private SurpriseCase drag2 = new SurpriseCase(new Dragon(60, 60));
     private SurpriseCase drag3 = new SurpriseCase(new Dragon(40, 40));
     private SurpriseCase drag4 = new SurpriseCase(new Dragon(30, 30));
@@ -62,7 +63,6 @@ public class Board {
     private Spell s1 = new Ligthning("Eclair", 50);
     private Spell s2 = new Invisibility("Invisibilité", 30);
     private Spell s3 = new FireWall("Mur de feu", 25);
-
 
     //---------------- liste des méthodes -----------------
 

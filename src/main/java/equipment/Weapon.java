@@ -1,6 +1,5 @@
 package equipment;
 
-
 public class Weapon {
     public String name;
 
@@ -14,7 +13,6 @@ public class Weapon {
 
     public String toString() {
         return "\n son arme: " + this.name ;
-
 
     }
 }

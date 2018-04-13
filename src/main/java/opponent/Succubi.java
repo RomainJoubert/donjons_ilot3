@@ -25,8 +25,6 @@ public class Succubi implements Surprise {
 
     public String toString() {
         return "Succube, son nom est : "+ name +" son niveau d'attaque : " + succubiLevel;
-
-
     }
 
     @Override

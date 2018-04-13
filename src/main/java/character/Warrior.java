@@ -7,7 +7,6 @@ public class Warrior extends Character {
     private Weapon weapon;
     private AddShield shield;
 
-
     public Weapon getWeapon() {
         return weapon;
     }

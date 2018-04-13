@@ -1,7 +1,5 @@
 package character;
 
-import java.util.Scanner;
-
 public abstract class Character {
     private String name;
     private String chType;
@@ -9,7 +7,6 @@ public abstract class Character {
     private int life;
     private int strengthCharacter;
     private int caseNum;
-
 
     public int getCaseNum() {
         return caseNum;

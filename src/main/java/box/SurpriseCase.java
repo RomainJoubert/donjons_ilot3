@@ -1,6 +1,5 @@
 package box;
 
-import equipment.Weapon;
 import opponent.Opponent;
 
 
@@ -28,7 +27,6 @@ public class SurpriseCase {
     public void setSurprise(Surprise surprise) {
         this.surprise = surprise;
     }
-
 
     @Override
     public String toString() {
