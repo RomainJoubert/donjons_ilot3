@@ -6,18 +6,18 @@ public class Opponent extends event {
 
     public int attackLevel;
     public String name;
-
-
-    public int getAttackLevel() {
-        return attackLevel;
+    public int lifeLevelOpponent;
+    
+    public int getLifeLevelOpponent() {
+        return lifeLevelOpponent;
     }
 
-    public void setAttackLevel(int attackLevel) {
-        this.attackLevel = attackLevel;
+    public void setLifeLevelOpponent(int lifeLevelOpponent) {
+        this.lifeLevelOpponent = lifeLevelOpponent;
     }
 
     public String toString() {
-        return "\n son niveau d'attaque ;" +attackLevel ;
+        return "\n son nom " + name;
 
 
     }

@@ -1,33 +1,33 @@
 package opponent;
 
+import box.Surprise;
+import character.Character;
+import game.Board;
 
-public class Wizzard extends Opponent {
-	private int caseNum;
-	
-    public int getCaseNum() {
-		return caseNum;
-	}
+public class Wizzard implements Surprise {
+	private int wizzardLevel;
 
-	public void setCaseNum(int caseNum) {
-		this.caseNum = caseNum;
-	}
-
-	public Wizzard(int attackLevel) {
-        this.attackLevel = attackLevel;
+    public Wizzard(int wizzardLevel) {
+        this.wizzardLevel = wizzardLevel;
     }
 
-    public int getAttackLevel() {
-        return attackLevel;
+    public int getWizzardLevel() {
+        return wizzardLevel;
     }
 
-    public void setAttackLevel(int attackLevel) {
-        this.attackLevel = attackLevel;
+    public void setWizzardLevel(int wizzardLevel) {
+        this.wizzardLevel = wizzardLevel;
     }
 
     public String toString() {
-        return "\n son niveau d'attaque ;" +attackLevel ;
-
+        return "wizzard, son niveau d'attaque : " + wizzardLevel;
 
     }
-// combattent les magiciens uniquement
+
+    @Override
+    public void faireAction(Board b, Character c) {
+
+    }
+
+    // combattent les magiciens uniquement
 }

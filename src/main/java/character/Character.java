@@ -1,20 +1,12 @@
 package character;
 
-public class Character {
+public abstract class Character {
     private String name;
     private String chType;
     private String picture;
     private int life;
-    private int attackLevel;
+    private int strengthCharacter;
     private int caseNum;
-
-
-   /* public Character(String name, String picture,int life, int attackLevel) {
-        this.name = name;
-        this.picture = picture;
-        this.life = life;
-        this.attackLevel = attackLevel;
-    }*/
 
 
     public int getCaseNum() {
@@ -57,15 +49,16 @@ public class Character {
         this.life = life;
     }
 
-    public int getAttackLevel() {
-        return attackLevel;
+    public int getStrengthCharacter() {
+
+        return strengthCharacter;
     }
 
-    public void setAttackLevel(int attackLevel) {
-        this.attackLevel = attackLevel;
+    public void setStrengthCharacter(int attackLevel) {
+        this.strengthCharacter = attackLevel;
     }
 
     public String toString() {
-        return "détails du personnage" + "\nType" + chType + "\nnom : " + name + "\nimage : " + picture + "\nvie : " + life + "\nForce d'attaque : " + attackLevel;
+        return "détails du personnage" + "\nType" + chType + "\nnom : " + name + "\nimage : " + picture + "\nvie : " + life + "\nForce d'attaque : " + strengthCharacter;
     }
 }

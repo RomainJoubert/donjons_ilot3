@@ -1,35 +1,36 @@
 package opponent;
 
-public class Succubi extends Opponent {
-// combattent les guerriers - divise la force des armes des guerriers par deux
-	private int caseNum;
+import box.Surprise;
+import game.Board;
+
+public class Succubi implements Surprise {
+    // combattent les guerriers - divise la force des armes des guerriers par deux
+    private int succubiLevel;
+    private String name;
 
 
-        public int getCaseNum() {
-		return caseNum;
-	}
+    public Succubi(String name, int succubiLevel) {
+        this.succubiLevel = succubiLevel;
+        this.name = name;
 
-	public void setCaseNum(int caseNum) {
-		this.caseNum = caseNum;
-	}
+    }
 
-		public Succubi( String name, int attackLevel ) {
-            this.name = name;
-            this.attackLevel = attackLevel;
+    public int getSuccubiLevel() {
+        return succubiLevel;
+    }
 
-        }
+    public void setSuccubiLevel(int attackLevel) {
+        this.succubiLevel = succubiLevel;
+    }
 
-        public int getAttackLevel() {
-            return attackLevel;
-        }
-
-        public void setAttackLevel(int attackLevel) {
-            this.attackLevel = attackLevel;
-        }
-
-        public String toString() {
-            return "\n son niveau d'attaque ;" +attackLevel ;
+    public String toString() {
+        return "Succube, son nom est : "+ name +" son niveau d'attaque : " + succubiLevel;
 
 
-        }
+    }
+
+    @Override
+    public void faireAction(Board b, character.Character c) {
+
+    }
 }

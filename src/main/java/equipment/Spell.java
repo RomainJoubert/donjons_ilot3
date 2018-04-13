@@ -1,23 +1,19 @@
 package equipment;
 
-import character.Magician;
 
-public class Spell extends Magician {
+public class Spell {
     public String name;
-    public int levelDragons;
-    public int levelSuccubus;
-    public int levelWizzard;
 
-    public Spell(String spellName, int dragonAttack , int succubusAttack, int wizzardAttack) {
-        this.name = spellName;
-        this.levelDragons = dragonAttack;
-        this.levelSuccubus = succubusAttack;
-        this.levelWizzard = wizzardAttack;
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String toString() {
-           return "\n son Sort: " + this.name + "\n niveau du Sort: " + this.levelDragons +this.levelSuccubus +this.levelWizzard;
+        return "\n son Sort: " + this.name ;
 
 
     }

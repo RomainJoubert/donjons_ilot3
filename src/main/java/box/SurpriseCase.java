@@ -1,10 +1,13 @@
 package box;
 import equipment.Weapon;
+import game.event;
+import opponent.Opponent;
 
 
-public class SurpriseCase  {
+public class SurpriseCase extends event {
     private Surprise surprise;
-    private int caseNum;
+    private Opponent opponent;
+     int caseNum;
 
     public int getCaseNum() {
 		return caseNum;
@@ -26,12 +29,9 @@ public class SurpriseCase  {
         this.surprise = surprise;
     }
 
+
+    @Override
     public String toString() {
-        return "" + this.surprise;
-
+        return "Tu es tombé sur une case surprise " + surprise ;
     }
-
-
-
-
 }

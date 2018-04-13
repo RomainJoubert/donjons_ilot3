@@ -1,12 +1,12 @@
 package character;
 
+import box.AddShield;
 import equipment.Weapon;
 
 public class Warrior extends Character {
     private Weapon weapon;
-    private int weaponLevel;
-    private String shield;
-    private int shieldLevel;
+    private AddShield shield;
+
 
     public Weapon getWeapon() {
         return weapon;
@@ -16,34 +16,18 @@ public class Warrior extends Character {
         this.weapon = weapon;
     }
 
-    public int getWeaponLevel() {
-        return weaponLevel;
-    }
 
-    public void setWeaponLevel(int weaponLevel) {
-        this.weaponLevel = weaponLevel;
-    }
-
-    public String getShield() {
+    public AddShield getShield() {
         return shield;
     }
 
-    public void setShield(String shield) {
+    public void setShield(AddShield shield) {
         this.shield = shield;
-    }
-
-    public int getShieldLevel() {
-        return shieldLevel;
-    }
-
-    public void setShieldLevel(int shieldLevel) {
-        this.shieldLevel = shieldLevel;
     }
 
     public String toString() {
         return "Arme : " + weapon +
-                "\n Puissance de l'arme : " +weaponLevel +
-                "\n Bouclier : " + shield +
-                "\n Puissance du bouclier : " + shieldLevel;
+                "\n Bouclier : " + shield;
+
     }
 }
