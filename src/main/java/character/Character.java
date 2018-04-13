@@ -1,14 +1,11 @@
 package character;
 
-import java.util.Scanner;
-
 public abstract class Character {
     private String name;
     private String picture;
     private int life;
     private int strengthCharacter;
     private int caseNum;
-
 
     public int getCaseNum() {
         return caseNum;
@@ -52,7 +49,7 @@ public abstract class Character {
     }
 
     public String toString() {
-        return "détails du personnage" + "\nnom : " + name + "\nimage : " + picture + "\nvie : " + life + "\nForce d'attaque : " + strengthCharacter;
+        return "Détails du personnage" + "\nNom : " + name + "\nImage : " + picture + "\nVie : " + life + "\nForce d'attaque : " + strengthCharacter;
     }
 
 

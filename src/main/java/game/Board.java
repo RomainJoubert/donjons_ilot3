@@ -7,17 +7,22 @@ import equipment.*;
 import opponent.Dragon;
 import opponent.Succubi;
 import opponent.Wizzard;
-import java.util.Collections;
-import java.util.ArrayList;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
+<<<<<<< HEAD
     //---------------cases surprises----------------
 public class Board extends Main {
+=======
+//---------------cases surprises----------------
+public class Board {
+>>>>>>> 02e3d3d1ded406c95ac20255a1bc9be5a542c4a0
     private static Scanner sc = new Scanner(System.in);
     private int cases1;
     private String input;
     private String test;
+<<<<<<< HEAD
     private Pioche maListe = new Pioche();
     private Warrior X = new Warrior();
     private Magician Y = new Magician();
@@ -27,6 +32,16 @@ public class Board extends Main {
 
  
 	private SurpriseCase w4 = new SurpriseCase(new AddWeapon("bombe", 100));
+=======
+    private static Board board = new Board(63);
+    private Pioche maListe = new Pioche();
+    public character.Character perso;
+    /* = new Warrior();
+     private character.Character Y = new Magician();
+ */
+    //----------------------- création des cases surprises -----------------------------------
+    private SurpriseCase w4 = new SurpriseCase(new AddWeapon("bombe", 100));
+>>>>>>> 02e3d3d1ded406c95ac20255a1bc9be5a542c4a0
     private SurpriseCase w5 = new SurpriseCase(new AddWeapon("hache", 25));
     private SurpriseCase sp1 = new SurpriseCase(new AddSpell("Boule de feu", 50));
     private SurpriseCase sp2 = new SurpriseCase(new AddSpell("Lévitation", 25));
@@ -43,7 +58,7 @@ public class Board extends Main {
     private SurpriseCase j2 = new SurpriseCase(new Joker50());
 
     //------------------------ création des ennemis -----------------------------
-    public SurpriseCase drag1 = new SurpriseCase(new Dragon(80, 80));
+    private SurpriseCase drag1 = new SurpriseCase(new Dragon(80, 80));
     private SurpriseCase drag2 = new SurpriseCase(new Dragon(60, 60));
     private SurpriseCase drag3 = new SurpriseCase(new Dragon(40, 40));
     private SurpriseCase drag4 = new SurpriseCase(new Dragon(30, 30));
@@ -66,27 +81,32 @@ public class Board extends Main {
     private Spell s2 = new Invisibility("Invisibilité", 30);
     private Spell s3 = new FireWall("Mur de feu", 25);
 
-
     //---------------- liste des méthodes -----------------
+    private ArrayList<Cases> tabCases = new ArrayList<Cases>();
 
-	private ArrayList<Case> cases = new ArrayList<Case>();
+    public ArrayList<Cases> getTabCases() {
+        return tabCases;
+    }
 
+    public void setTabCases(ArrayList<Cases> Tabcases) {
+        this.tabCases = Tabcases;
+    }
 
-	public ArrayList<Case> getCases() {
-		return cases;
-	}
-
-	public void setCases(ArrayList<Case> cases) {
-		this.cases = cases;
-	}
-
+<<<<<<< HEAD
 	public Board(int j) {
 		for (int i=0; i<= 64; i++) {
 			cases.add(new Case());
 		}
 	}
+=======
+    public Board(int j) {
+        for (int i = 0; i <= 63; i++) {
+            tabCases.add(new Cases());
+        }
+    }
+>>>>>>> 02e3d3d1ded406c95ac20255a1bc9be5a542c4a0
 
-	public void draw() {
+    public void draw() {
         for (int i = 0; i < 29; i++) {
             System.out.println(maListe.getListID().get(i));
         }
@@ -96,6 +116,7 @@ public class Board extends Main {
         int i;
         ArrayList<SurpriseCase> surpriseList = new ArrayList<SurpriseCase>();
         w4.setCaseNum(maListe.getListID().get(15));
+<<<<<<< HEAD
         getCases().get(maListe.getListID().get(15)).setEv(w4);
         surpriseList.add(w4);
         w5.setCaseNum(maListe.getListID().get(16));
@@ -181,6 +202,93 @@ public class Board extends Main {
         surpriseList.add(wizz3);
         wizz4.setCaseNum(maListe.getListID().get(14));
         getCases().get(maListe.getListID().get(14)).setEv(wizz4);
+=======
+        board.getTabCases().get(maListe.getListID().get(15)).setEv(w4);
+        surpriseList.add(w4);
+        w5.setCaseNum(maListe.getListID().get(16));
+        board.getTabCases().get(maListe.getListID().get(16)).setEv(w5);
+        surpriseList.add(w5);
+        sp1.setCaseNum(maListe.getListID().get(23));
+        board.getTabCases().get(maListe.getListID().get(23)).setEv(sp1);
+        surpriseList.add(sp1);
+        sp2.setCaseNum(maListe.getListID().get(24));
+        board.getTabCases().get(maListe.getListID().get(24)).setEv(sp2);
+        surpriseList.add(sp2);
+        sh1.setCaseNum(maListe.getListID().get(17));
+        board.getTabCases().get(maListe.getListID().get(17)).setEv(sh1);
+        surpriseList.add(sh1);
+        sh2.setCaseNum(maListe.getListID().get(18));
+        board.getTabCases().get(maListe.getListID().get(18)).setEv(sh2);
+        surpriseList.add(sh2);
+        sh3.setCaseNum(maListe.getListID().get(19));
+        board.getTabCases().get(maListe.getListID().get(19)).setEv(sh3);
+        surpriseList.add(sh3);
+        ph1.setCaseNum(maListe.getListID().get(20));
+        board.getTabCases().get(maListe.getListID().get(20)).setEv(ph1);
+        surpriseList.add(ph1);
+        ph2.setCaseNum(maListe.getListID().get(21));
+        board.getTabCases().get(maListe.getListID().get(21)).setEv(ph2);
+        surpriseList.add(ph2);
+        ph3.setCaseNum(maListe.getListID().get(22));
+        board.getTabCases().get(maListe.getListID().get(22)).setEv(ph3);
+        surpriseList.add(ph3);
+        b1.setCaseNum(maListe.getListID().get(25));
+        board.getTabCases().get(maListe.getListID().get(25)).setEv(b1);
+        surpriseList.add(b1);
+        m1.setCaseNum(maListe.getListID().get(26));
+        board.getTabCases().get(maListe.getListID().get(26)).setEv(m1);
+        surpriseList.add(m1);
+        m2.setCaseNum(maListe.getListID().get(27));
+        board.getTabCases().get(maListe.getListID().get(26)).setEv(m2);
+        surpriseList.add(m2);
+        j1.setCaseNum(maListe.getListID().get(28));
+        board.getTabCases().get(maListe.getListID().get(28)).setEv(j1);
+        surpriseList.add(j1);
+        j2.setCaseNum(maListe.getListID().get(29));
+        board.getTabCases().get(maListe.getListID().get(29)).setEv(j2);
+        surpriseList.add(j2);
+        suc1.setCaseNum(maListe.getListID().get(1));
+        board.getTabCases().get(maListe.getListID().get(1)).setEv(suc1);
+        surpriseList.add(suc1);
+        suc2.setCaseNum(maListe.getListID().get(2));
+        board.getTabCases().get(maListe.getListID().get(2)).setEv(suc2);
+        surpriseList.add(suc2);
+        suc3.setCaseNum(maListe.getListID().get(3));
+        board.getTabCases().get(maListe.getListID().get(3)).setEv(suc3);
+        surpriseList.add(suc3);
+        suc4.setCaseNum(maListe.getListID().get(4));
+        board.getTabCases().get(maListe.getListID().get(4)).setEv(suc4);
+        surpriseList.add(suc4);
+        drag1.setCaseNum(maListe.getListID().get(5));
+        board.getTabCases().get(maListe.getListID().get(5)).setEv(drag1);
+        surpriseList.add(drag1);
+        drag2.setCaseNum(maListe.getListID().get(6));
+        board.getTabCases().get(maListe.getListID().get(6)).setEv(drag2);
+        surpriseList.add(drag2);
+        drag3.setCaseNum(maListe.getListID().get(7));
+        board.getTabCases().get(maListe.getListID().get(7)).setEv(drag3);
+        surpriseList.add(drag1);
+        drag4.setCaseNum(maListe.getListID().get(8));
+        board.getTabCases().get(maListe.getListID().get(8)).setEv(drag4);
+        surpriseList.add(drag4);
+        drag5.setCaseNum(maListe.getListID().get(9));
+        board.getTabCases().get(maListe.getListID().get(9)).setEv(drag5);
+        surpriseList.add(drag5);
+        drag6.setCaseNum(maListe.getListID().get(10));
+        board.getTabCases().get(maListe.getListID().get(10)).setEv(drag6);
+        surpriseList.add(drag6);
+        wizz1.setCaseNum(maListe.getListID().get(11));
+        board.getTabCases().get(maListe.getListID().get(11)).setEv(wizz1);
+        surpriseList.add(wizz1);
+        wizz2.setCaseNum(maListe.getListID().get(12));
+        board.getTabCases().get(maListe.getListID().get(12)).setEv(wizz2);
+        surpriseList.add(wizz2);
+        wizz3.setCaseNum(maListe.getListID().get(13));
+        board.getTabCases().get(maListe.getListID().get(13)).setEv(wizz3);
+        surpriseList.add(wizz3);
+        wizz4.setCaseNum(maListe.getListID().get(14));
+        board.getTabCases().get(maListe.getListID().get(14)).setEv(wizz4);
+>>>>>>> 02e3d3d1ded406c95ac20255a1bc9be5a542c4a0
         surpriseList.add(wizz4);
 
         for (i = 0; i < surpriseList.size(); i++) {
@@ -209,19 +317,21 @@ public class Board extends Main {
     }
 
     public void createWarrior() {
+        perso = new Warrior();
         System.out.println("Entre le nom de ton guerrier");
-        X.setName(sc.nextLine());
+        perso.setName(sc.nextLine());
         System.out.println("Ajoute une image");
-        X.setPicture(sc.nextLine());
-        System.out.println("Ton Guerrier porte le nom de " + X.getName() + " et a l'image : " + X.getPicture());
+        perso.setPicture(sc.nextLine());
+        System.out.println("Ton Guerrier porte le nom de " + perso.getName() + " et a l'image : " + perso.getPicture());
     }
 
     public void createMagician() {
+        perso = new Magician();
         System.out.println("Entre le nom de ton magicien");
-        Y.setName(sc.nextLine());
+        perso.setName(sc.nextLine());
         System.out.println("Ajoute une image");
-        Y.setPicture(sc.nextLine());
-        System.out.println("Ton Magicien porte le nom de " + Y.getName() + " et a l'image : " + Y.getPicture());
+        perso.setPicture(sc.nextLine());
+        System.out.println("Ton Magicien porte le nom de " + perso.getName() + " et a l'image : " + perso.getPicture());
     }
 
     public void chooseEquipment() {
@@ -243,11 +353,11 @@ public class Board extends Main {
                 System.out.println("Choisis une arme");
                 test = sc.nextLine();
                 if (test.equals("0")) {
-                    X.setWeapon(w1);
+                    ((Warrior) perso).setWeapon(w1);
                 } else if (test.equals("1")) {
-                    X.setWeapon(w2);
+                    ((Warrior) perso).setWeapon(w2);
                 } else if (test.equals("2")) {
-                    X.setWeapon(w3);
+                    ((Warrior) perso).setWeapon(w3);
                 }
             } while (!(test.equals("0") || test.equals("1") || test.equals("2")));
 
@@ -259,11 +369,11 @@ public class Board extends Main {
                 System.out.println("Choisis un sort");
                 test = sc.nextLine();
                 if (test.equals("0")) {
-                    Y.setSpell(s1);
+                    ((Magician) perso).setSpell(s1);
                 } else if (test.equals("1")) {
-                    Y.setSpell(s2);
+                    ((Magician) perso).setSpell(s2);
                 } else if (test.equals("2")) {
-                    Y.setSpell(s3);
+                    ((Magician) perso).setSpell(s3);
                 }
             } while (!(test.equals("0") || test.equals("1") || test.equals("2")));
         }
@@ -274,7 +384,6 @@ public class Board extends Main {
         int nb;
         String input2;
         cases1 = 0;
-
         do {
             do {
                 System.out.println("Lancer le dé ? \n1 - oui \n2 - non");
@@ -288,16 +397,12 @@ public class Board extends Main {
             if (input2.equals("1")) {
                 Dice dice1 = new Dice();
                 dice1.randomNumber();
-                if (X instanceof Warrior) {
-                	System.out.println("Tu as fait : " + dice1.getN());
-                	X.setCaseNum(X.getCaseNum() + dice1.getN());
-                	System.out.println("Tu es à la case : " + X.getCaseNum() + "/64");
-                } else {
-                	System.out.println("Tu as fait : " + dice1.getN());
-                	Y.setCaseNum(Y.getCaseNum() + dice1.getN());
-                	System.out.println("Tu es à la case : " + Y.getCaseNum() + "/64");
-                }
-                
+                System.out.println("Tu as fait : " + dice1.getN());
+                cases1 = cases1 + dice1.getN();
+                System.out.println("Tu es à la case : " + cases1 + "/64");
+//                  get evenement (w) de la case numero cases
+//                  w.faireAction(this, perso );
+
             } else if (input2.equals("2")) {
                 exit = true;
                 System.out.println("Tu es sorti(e) du game !");
@@ -333,5 +438,4 @@ public class Board extends Main {
             System.out.println("A bientôt !");
         }
     }
-
 }

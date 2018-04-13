@@ -1,9 +1,8 @@
 package opponent;
 
-import game.event;
+import game.EventCase;
 
-public class Opponent extends event {
-
+public class Opponent extends EventCase  {
     public int attackLevel;
     public String name;
     public int lifeLevelOpponent;
@@ -18,7 +17,6 @@ public class Opponent extends event {
 
     public String toString() {
         return "\n son nom " + name;
-
 
     }
 }

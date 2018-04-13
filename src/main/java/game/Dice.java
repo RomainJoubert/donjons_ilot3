@@ -2,7 +2,6 @@ package game;
 
 import java.util.Random;
 
-
 public class Dice {
     private int n;
 

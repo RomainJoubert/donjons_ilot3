@@ -25,6 +25,6 @@ public class Magician extends Character {
     }
 
     public String toString() {
-        return "Sort : " + spell;
+        return super.toString() + "\nSort : " + spell + "\nPhiltre : " + philter;
     }
 }

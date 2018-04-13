@@ -10,7 +10,7 @@ public class Bonus implements Surprise{
 
     @Override
     public void faireAction(Board b, character.Character c) {
-       c.setCaseNum(c.getCaseNum() + 5);
+        b.setTabCases(b.getTabCases());
 
     }
 }

@@ -1,5 +1,6 @@
 package box;
 
+import character.Character;
 import game.Board;
 
 public class Joker25 implements Surprise {
@@ -12,5 +13,6 @@ public class Joker25 implements Surprise {
     public void faireAction(Board b, character.Character c) {
             c.setLife(c.getLife() + 25);
         }
-    }
+
+}
 

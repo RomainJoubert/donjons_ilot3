@@ -13,8 +13,7 @@ public class Weapon extends Equipment {
     }
 
     public String toString() {
-        return "\n son arme: " + this.name ;
-
+        return name ;
 
     }
 }

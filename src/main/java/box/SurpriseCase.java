@@ -1,13 +1,9 @@
 package box;
 
-import equipment.Weapon;
-import game.event;
-import opponent.Opponent;
+import game.EventCase;
 
-
-public class SurpriseCase extends event {
+public class SurpriseCase extends EventCase {
     private Surprise surprise;
-    private Opponent opponent;
     int caseNum;
 
     public int getCaseNum() {
@@ -29,7 +25,6 @@ public class SurpriseCase extends event {
     public void setSurprise(Surprise surprise) {
         this.surprise = surprise;
     }
-
 
     @Override
     public String toString() {

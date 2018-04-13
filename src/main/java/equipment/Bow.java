@@ -19,6 +19,6 @@ public class Bow  extends Weapon{
 
     @Override
     public String toString() {
-        return"bowLevel=" + bowLevel ;
+        return super.toString() + " de force d'attaque de  " + bowLevel ;
     }
 }

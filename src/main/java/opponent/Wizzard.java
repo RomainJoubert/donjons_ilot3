@@ -3,8 +3,8 @@ package opponent;
 import box.Surprise;
 import game.Board;
 
-public class Wizzard implements Surprise {
-	private int wizzardLevel;
+public class Wizzard extends Opponent implements Surprise {
+    private int wizzardLevel;
 
     public Wizzard(int wizzardLevel) {
         this.wizzardLevel = wizzardLevel;
@@ -25,8 +25,6 @@ public class Wizzard implements Surprise {
 
     @Override
     public void faireAction(Board b, character.Character c) {
-        wizzardLevel
-
 
     }
 
