@@ -11,8 +11,10 @@ import opponent.Wizzard;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//---------------cases surprises----------------
-public class Board {
+
+    //---------------cases surprises----------------
+public class Board extends Main {
+
     private static Scanner sc = new Scanner(System.in);
     private int cases1;
     private String input;
@@ -75,11 +77,13 @@ public class Board {
         this.tabCases = Tabcases;
     }
 
+
     public Board(int taille_board) {
         for (int i = 0; i < taille_board; i++) {
             tabCases.add(new Cases());
         }
     }
+
 
     public void draw() {
         for (int i = 0; i < 29; i++) {
