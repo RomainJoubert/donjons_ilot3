@@ -52,5 +52,9 @@ public abstract class Character {
         return "Détails du personnage" + "\nNom : " + name + "\nImage : " + picture + "\nVie : " + life + "\nForce d'attaque : " + strengthCharacter;
     }
 
+    public void save(){
+
+    };
+
 
 }

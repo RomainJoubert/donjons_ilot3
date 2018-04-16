@@ -16,8 +16,8 @@ public class Main {
         bo.moveCase();
 
 //        AddWeapon w = new AddWeapon("arc", 10);
-        AddSpell s = new AddSpell("boule de feu", 50);
-        s.faireAction(bo, bo.perso);
+       /* AddSpell s = new AddSpell("boule de feu", 50);
+        s.faireAction(bo, bo.perso);*/
 //        w.faireAction(bo, bo.perso);
 
     }

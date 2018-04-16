@@ -206,6 +206,8 @@ public class Board extends Main {
         } else if (input.equals("2")) {
             createMagician();
         }
+
+
     }
 
     public void createWarrior() {
@@ -215,7 +217,11 @@ public class Board extends Main {
         System.out.println("Ajoute une image");
         perso.setPicture(sc.nextLine());
         System.out.println("Ton Guerrier porte le nom de " + perso.getName() + " et a l'image : " + perso.getPicture());
+        perso.save();
+
     }
+
+
 
     public void createMagician() {
         perso = new Magician();
@@ -224,6 +230,7 @@ public class Board extends Main {
         System.out.println("Ajoute une image");
         perso.setPicture(sc.nextLine());
         System.out.println("Ton Magicien porte le nom de " + perso.getName() + " et a l'image : " + perso.getPicture());
+        perso.save();
     }
 
     public void chooseEquipment() {
